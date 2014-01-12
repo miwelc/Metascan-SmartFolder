@@ -1,0 +1,66 @@
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "2y6-ep-rle"; */
+"2y6-ep-rle.title" = "Label";
+
+/* Class = "NSMenuItem"; title = "Configure"; ObjectID = "Brg-Xl-YQm"; */
+"Brg-Xl-YQm.title" = "Configure";
+
+/* Class = "NSTextFieldCell"; title = "Metascan Online SmartFolder"; ObjectID = "DwS-Uh-y8e"; */
+"DwS-Uh-y8e.title" = "Metascan Online SmartFolder";
+
+/* Class = "NSToolbarItem"; label = "Account"; ObjectID = "Dxs-si-f3o"; */
+"Dxs-si-f3o.label" = "Account";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Account"; ObjectID = "Dxs-si-f3o"; */
+"Dxs-si-f3o.paletteLabel" = "Account";
+
+/* Class = "NSMenuItem"; title = "Resume"; ObjectID = "MbY-i9-f4Y"; */
+"MbY-i9-f4Y.title" = "Resume";
+
+/* Class = "NSToolbarItem"; label = "About"; ObjectID = "P8m-6b-dG0"; */
+"P8m-6b-dG0.label" = "About";
+
+/* Class = "NSToolbarItem"; paletteLabel = "About"; ObjectID = "P8m-6b-dG0"; */
+"P8m-6b-dG0.paletteLabel" = "About";
+
+/* Class = "NSTextFieldCell"; title = "Metascan Online SmartFolder"; ObjectID = "Qnv-aS-fWw"; */
+"Qnv-aS-fWw.title" = "Metascan Online SmartFolder";
+
+/* Class = "NSWindow"; title = "SmartFolder Configuration"; ObjectID = "cP8-t8-ttI"; */
+"cP8-t8-ttI.title" = "SmartFolder Configuration";
+
+/* Class = "NSMenuItem"; title = "Quit"; ObjectID = "cj2-eT-RY1"; */
+"cj2-eT-RY1.title" = "Quit";
+
+/* Class = "NSToolbarItem"; label = "SmartFolder"; ObjectID = "eDA-Cr-Brx"; */
+"eDA-Cr-Brx.label" = "SmartFolder";
+
+/* Class = "NSToolbarItem"; paletteLabel = "SmartFolder"; ObjectID = "eDA-Cr-Brx"; */
+"eDA-Cr-Brx.paletteLabel" = "SmartFolder";
+
+/* Class = "NSWindow"; title = "Metascan SmartFolder"; ObjectID = "hGO-us-4F4"; */
+"hGO-us-4F4.title" = "Metascan SmartFolder";
+
+/* Class = "NSButtonCell"; title = "Change"; ObjectID = "iAj-Pl-Aps"; */
+"iAj-Pl-Aps.title" = "Change";
+
+/* Class = "NSTextFieldCell"; title = "By clicking the install button you accept these terms"; ObjectID = "iOJ-a0-IeB"; */
+"iOJ-a0-IeB.title" = "By clicking the install button you accept these terms";
+
+/* Class = "NSTextFieldCell"; title = "License agreement:"; ObjectID = "meb-gl-d0x"; */
+"meb-gl-d0x.title" = "License agreement:";
+
+/* Class = "NSTextFieldCell"; title = "Metascan Online SmartFolder"; ObjectID = "oIE-h9-Vbb"; */
+"oIE-h9-Vbb.title" = "Metascan Online SmartFolder";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "pzr-Kc-xue"; */
+"pzr-Kc-xue.title" = "Cancel";
+
+/* Class = "NSButtonCell"; title = "Install"; ObjectID = "rQA-IB-wCv"; */
+"rQA-IB-wCv.title" = "Install";
+
+/* Class = "NSTextFieldCell"; title = "SmartFolder:"; ObjectID = "thA-2V-jUV"; */
+"thA-2V-jUV.title" = "SmartFolder:";
+
+/* Class = "NSTextFieldCell"; title = "API Key"; ObjectID = "uYT-fY-31w"; */
+"uYT-fY-31w.title" = "API Key";

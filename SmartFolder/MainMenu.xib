@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="494" id="495"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="494" customClass="SFAppDelegate">
+            <connections>
+                <outlet property="apiKeyTextField" destination="lTd-HS-HQQ" id="bxI-2O-1Hg"/>
+                <outlet property="confAboutView" destination="SYD-bU-X7X" id="EjG-Yf-8B0"/>
+                <outlet property="confAccountView" destination="6sG-Rr-hBK" id="Nm4-If-Fox"/>
+                <outlet property="confGeneralView" destination="70j-OS-Upp" id="gk0-5b-xVl"/>
+                <outlet property="confResultsView" destination="fqH-3J-Ije" id="LCq-5f-8IH"/>
+                <outlet property="configToolbar" destination="1Pl-Dx-ilm" id="9Iz-Zy-HVy"/>
+                <outlet property="configWindow" destination="cP8-t8-ttI" id="VtL-7z-e4p"/>
+                <outlet property="configureMenuItem" destination="Brg-Xl-YQm" id="bgN-Ls-KJR"/>
+                <outlet property="correctKeyImg" destination="Wyw-VW-qcC" id="v6f-zK-Rva"/>
+                <outlet property="dirLabel" destination="6aA-jI-jdD" id="uFP-mO-gYX"/>
+                <outlet property="installWindow" destination="hGO-us-4F4" id="4HW-oy-nl0"/>
+                <outlet property="legalPanel" destination="47X-lb-AVj" id="f1d-qu-iIK"/>
+                <outlet property="pauseResumeItem" destination="MbY-i9-f4Y" id="2CM-a6-dJm"/>
+                <outlet property="rescanTimeButton" destination="96s-Yo-UPa" id="lfa-mM-9Hw"/>
+                <outlet property="resultsTableView" destination="Lar-T0-gLD" id="vqT-Jl-A8F"/>
+                <outlet property="statusMenu" destination="1PE-TB-h0R" id="sBK-lQ-KYu"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+        <menu id="1PE-TB-h0R">
+            <items>
+                <menuItem title="Configure" id="Brg-Xl-YQm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showConfiguration:" target="494" id="Sc1-4u-0HL"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Resume" tag="1" id="MbY-i9-f4Y">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="switchPauseResume:" target="494" id="EmM-hM-jI7"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit" id="cj2-eT-RY1">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="terminate:" target="-3" id="KN2-pa-KXG"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <window title="Metascan SmartFolder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="hGO-us-4F4" userLabel="installWindow">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="464" y="367" width="525" height="427"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <value key="minSize" type="size" width="525" height="427"/>
+            <view key="contentView" id="Obt-Yb-nOJ">
+                <rect key="frame" x="0.0" y="0.0" width="525" height="427"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyH-Ds-tOy">
+                        <rect key="frame" x="20" y="94" width="485" height="252"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="A2U-BK-ALO">
+                            <rect key="frame" x="1" y="1" width="483" height="250"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" baseWritingDirection="leftToRight" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="wpA-c2-Oq5">
+                                    <rect key="frame" x="0.0" y="0.0" width="483" height="1904"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="textColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="483" height="250"/>
+                                    <size key="maxSize" width="485" height="10000000"/>
+                                    <attributedString key="textStorage">
+                                        <fragment>
+                                            <string key="content">Metascan® Online API Terms of Service
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="These Terms of Service (&quot;Terms&quot;) govern your access to and use of ">
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="http://www.metascan-online.com">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content"> (the “Site”) via the Metascan Online API.  Any reference to “you” or “your” means you as user of the Service, any reference to “we”, “us”, “our” is to OPSWAT, Inc., (“OPSWAT”) the entity that owns Site and provides the Service. By using and/or accessing the Site via the Service, you agree that you have read, understood and consent to be bound by these Terms.
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Use of the Service
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Your use of the Service may be limited, based on the Service package you purchased.  
+You also agree:
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">▪	</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="Calibri"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" firstLineHeadIndent="18" headIndent="36" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">To use the Service only for lawful purposes, in a manner which is not expressly prohibited by these Terms, and in a manner this does not infringe the legal rights or interests of the OPSWAT or third parties.
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" firstLineHeadIndent="18" headIndent="36" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">▪	</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="Calibri"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" firstLineHeadIndent="18" headIndent="36" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">To abstain from any activity that could damage, overload, harm or impede the normal functioning of the Site or the Service. Similarly, and in accordance with applicable legislation, you will refrain from illicitly or fraudulently obtaining or using content; and
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" firstLineHeadIndent="18" headIndent="36" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">▪	</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="Calibri"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" firstLineHeadIndent="18" headIndent="36" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Not to use the Service in any way that could directly or indirectly hinder the mission of the antivirus industry.
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" firstLineHeadIndent="18" headIndent="36" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Account Creation and Your Privacy
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Use of the Service requires creation by you of an account at ">
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="https://portal.opswat.com">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content"> (“Account”).  Depending on the information you provide in the registration and profile building process, your Account may uniquely identify you. 
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Credentials and API Keys
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">You are responsible for safeguarding any API Keys and credentials used to access the Service and your Account, and for any activities or actions under these credentials. We will not be liable for any loss or damage arising from your failure to comply with this guidance.
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Content Submitted to the Site Using Service
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">You retain all ownership rights in any submission you may make to the Site and you confirm that you are the original owner of any files or hashes you submit or that you have the necessary rights and permissions to authorize us to use your content. You agree to give us evidence of all such rights and permissions if so requested by us.
+When you upload or otherwise submit files or hashes  using the Service, you give OPSWAT a worldwide, royalty free, irrevocable  license to use edit, host, store, reproduce, modify, create derivative works, publicly display analysis of such content; PROVIDED, however, OPSWAT shall not share files you submit with any third parties. OPSWAT shall treat files you submit using the Service as your “confidential information” and maintain reasonable security precautions to prevent third parties from accessing the files. OPSWAT shall immediately notify you in writing in the event of any unauthorized disclosure of your files submitted via the Service, and shall cooperate with you, at OPSWAT’s expense, in minimizing the effects of any unauthorized access or disclosure of the file.
+If you do not want the content provided by you to the Site to be disclosed in the manner set out in these Terms do not use the Site or the Service. 
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">OPSWAT Rights
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">All rights, title, and interest in and to the Site (excluding third party brand names) and Service are and will remain the exclusive property of OPSWAT and its licensors. Nothing in these Terms should be construed as conferring by implication or otherwise any license or right under any copyright, patent, trade mark, database right,  or other intellectual property or proprietary interest of OPSWAT, its licensors or any third party. We reserve the right to remove any content without prior notice and at our sole discretion.
+Additionally, nothing in the Terms gives you a right to use the OPSWAT trademarks, logos, domain names, and other distinctive brand features of the Site or Service.
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Support
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Your use of the Service entitles you to our Standard Technical Support Program described at ">
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="http://www.opswat.com/support">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <url key="NSLink" string="http://www.opswat.com/support"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=".  If you desire Gold or Platinum Support, please contact ">
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="sales@ospwat.com">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <url key="NSLink" string="mailto:sales@ospwat.com"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">.  If you experience issues with the Site or the Service your method of notifying OPSWAT is to submit a ticket via your Account at </string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="https://portal.opswat.com/support">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <url key="NSLink" string="https://portal.opswat.com/support"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Changes in Service
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">The Site and the Service are constantly evolving, and may change from time to time without prior notice to you. Any changes, including new Site or Service features, are subject to these Terms. In addition, OPSWAT may stop (permanently or temporarily) providing the Site or Service (or any features within the Site or Service) without providing prior notice. 
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Disclaimers
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">Your access to and use of the Site and the Service is at your own risk. You understand and agree that the Service are provided to you on an "AS IS" and "AS AVAILABLE" basis. Without limiting the foregoing, OPSWAT AND ITS AFFILIATES, AGENTS, PARTNERS AND SUBSIDIARIES DISCLAIM ANY WARRANTIES, EXPRESS OR IMPLIED, OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+You also agree that OPSWAT has no responsibility or liability for the deletion of, or the failure to store or to transmit, any content and other communications maintained by the Site or the Service.
+The Site may contain links to third-party websites or resources. Links to such websites or resources do not imply any endorsement by OPSWAT of such websites or resources or the content, products, or services available from such websites or resources. You acknowledge sole responsibility for and assume all risk arising from your use of any such websites or resources. Please note that user comments on URLs and files may contain URLs/links leading to malware.
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Limitation of Liability
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OPSWAT, AND ITS SUBSIDIARIES, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS, PARTNERS AND LICENSORS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER LOSSES, RESULTING FROM (i) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICE; (ii) ANY CONDUCT OR CONTENT OF ANY THIRD PARTY, INCLUDING WITHOUT LIMITATION, ANY DEFAMATORY, OFFENSIVE OR ILLEGAL CONDUCT OF OTHER USERS OR THIRD PARTIES; (iii) ANY CONTENT OBTAINED FROM THE SERVICE; AND (iv) UNAUTHORISED ACCESS, USE OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE) OR ANY OTHER LEGAL THEORY, WHETHER OR NOT WE HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE.  THE MAXIMUM TOTAL LIABILITY OF OPSWAT, AND ITS SUBSIDIARIES, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS, PARTNERS AND LICENSORS TO YOU UNDER ANY THEORY SHALL IN NO EVENT EXCEED THE PURCHASE AMOUNT YOU PAID FOR YOUR SERVICE PACKAGE.
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Viruses, Hacking and Other Offences
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">You must not misuse the Site or the Service. You must not attempt to gain unauthorized access to our website, the servers on which the Site is hosted or any server, computer or database connected to our website. You must not attack our Site via a denial-of-service attack or a distributed denial-of service attack.
+We will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses or other technologically harmful material that may infect your computer equipment, computer programs, data or other proprietary material due to your access to or use of the Service or any third party content or websites.
+</mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">About These Terms
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" paragraphSpacingBefore="18" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <mutableString key="content">These Terms are the entire and exclusive agreement between OPSWAT and you regarding the Service and these Terms supersede and replace any prior agreements between you and OPSWAT regarding the Service.
+Please note that we may update and amend these Terms from time to time and any changes will be posted on the Site. By continuing to access the Service after any changes become effective, you agree to be bound by the revised Terms.
+The failure of OPSWAT to enforce any right or provision of these Terms will not be deemed a waiver of such right or provision. In the event that any provision of these Terms is held to be invalid or unenforceable, the remaining provisions of these Terms will remain in full force and effect.
+These Terms and any dispute or claim arising out of or in connection with them or their subject matter or formation (including non-contractual disputes or claims) shall be governed by and construed in accordance with the laws of the State of California. The State and Federal courts of San Francisco County will have exclusive jurisdiction over any claim arising from, or related to the Service.
+
+For questions regarding these Terms or to purchase a Service package, please contact </mutableString>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="sales@opswat.com">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.65098039215686276" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <url key="NSLink" string="mailto:sales@opswat.com"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">.
+
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="10" tailIndent="468" lineHeightMultiple="1.1500000000000001" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="483" height="250"/>
+                                    <size key="maxSize" width="485" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="ZkA-hv-xu3">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="XDa-qr-Saf">
+                            <rect key="frame" x="468" y="1" width="16" height="250"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uCW-bt-iT5">
+                        <rect key="frame" x="433" y="13" width="78" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rQA-IB-wCv">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="installButtonClicked:" target="494" id="Vxa-v9-xbE"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BiG-OA-h9C">
+                        <rect key="frame" x="351" y="13" width="82" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pzr-Kc-xue">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="terminate:" target="-3" id="Sm2-m0-cyA"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGW-GW-kHB">
+                        <rect key="frame" x="18" y="69" width="332" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="By clicking the install button you accept these terms" id="iOJ-a0-IeB">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7aB-FO-BnN">
+                        <rect key="frame" x="18" y="354" width="126" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="License agreement:" id="meb-gl-d0x">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u5o-M1-lwA">
+                        <rect key="frame" x="229" y="378" width="276" height="42"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="276" id="YDe-Wy-gTM"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="metascanonline-logo2" id="nfP-Ha-AXI"/>
+                    </imageView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PEK-dd-quT">
+                        <rect key="frame" x="20" y="383" width="122" height="33"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="o9N-8q-ncv"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="minilogo" id="Gfg-sY-C3v"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PEK-dd-quT" firstAttribute="leading" secondItem="Obt-Yb-nOJ" secondAttribute="leading" constant="20" symbolic="YES" id="0FV-Uj-snV"/>
+                    <constraint firstItem="PEK-dd-quT" firstAttribute="leading" secondItem="7aB-FO-BnN" secondAttribute="leading" id="6sd-kc-soh"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="top" secondItem="7aB-FO-BnN" secondAttribute="bottom" constant="8" symbolic="YES" id="72W-qF-fVw"/>
+                    <constraint firstItem="bGW-GW-kHB" firstAttribute="top" secondItem="dyH-Ds-tOy" secondAttribute="bottom" constant="8" symbolic="YES" id="948-ln-uhb"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="trailing" secondItem="u5o-M1-lwA" secondAttribute="trailing" id="Gwy-Yp-KHi"/>
+                    <constraint firstItem="uCW-bt-iT5" firstAttribute="baseline" secondItem="BiG-OA-h9C" secondAttribute="baseline" id="Kxx-T5-rEw"/>
+                    <constraint firstItem="uCW-bt-iT5" firstAttribute="trailing" secondItem="dyH-Ds-tOy" secondAttribute="trailing" id="UDH-Qd-1EZ"/>
+                    <constraint firstItem="PEK-dd-quT" firstAttribute="trailing" secondItem="7aB-FO-BnN" secondAttribute="trailing" id="Zft-h3-f2s"/>
+                    <constraint firstAttribute="trailing" secondItem="u5o-M1-lwA" secondAttribute="trailing" constant="20" symbolic="YES" id="car-g7-263"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="leading" secondItem="bGW-GW-kHB" secondAttribute="leading" id="ck8-c6-Y1l"/>
+                    <constraint firstAttribute="bottom" secondItem="BiG-OA-h9C" secondAttribute="bottom" constant="20" symbolic="YES" id="d7K-l5-X3j"/>
+                    <constraint firstItem="u5o-M1-lwA" firstAttribute="centerY" secondItem="PEK-dd-quT" secondAttribute="centerY" id="isW-bF-1dq"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="top" secondItem="u5o-M1-lwA" secondAttribute="bottom" constant="32" id="lQP-CN-Ia0"/>
+                    <constraint firstItem="BiG-OA-h9C" firstAttribute="top" secondItem="dyH-Ds-tOy" secondAttribute="bottom" constant="53" id="pC7-Wn-EWv"/>
+                    <constraint firstItem="7aB-FO-BnN" firstAttribute="top" secondItem="PEK-dd-quT" secondAttribute="bottom" constant="12" id="rGT-fs-k8U"/>
+                    <constraint firstItem="u5o-M1-lwA" firstAttribute="top" secondItem="Obt-Yb-nOJ" secondAttribute="top" constant="7" id="uKV-5n-1FV"/>
+                    <constraint firstItem="uCW-bt-iT5" firstAttribute="leading" secondItem="BiG-OA-h9C" secondAttribute="trailing" constant="12" symbolic="YES" id="x4R-x5-NFV"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="leading" secondItem="7aB-FO-BnN" secondAttribute="leading" id="y6Z-Ay-lrQ"/>
+                </constraints>
+            </view>
+        </window>
+        <view id="70j-OS-Upp" userLabel="confGeneralView">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOb-M8-6ee">
+                    <rect key="frame" x="14" y="99" width="88" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iAj-Pl-Aps">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="selectFolder:" target="494" id="RkN-VL-9IY"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6aA-jI-jdD">
+                    <rect key="frame" x="101" y="97" width="254" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Label" id="2y6-ep-rle">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gh2-I7-CIU">
+                    <rect key="frame" x="17" y="135" width="80" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="SmartFolder:" id="thA-2V-jUV">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkS-6T-2WG">
+                    <rect key="frame" x="13" y="10" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="gdj-Cg-zKd"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-dr-T7z">
+                    <rect key="frame" x="62" y="5" width="160" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="iQV-rZ-klW">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96s-Yo-UPa">
+                    <rect key="frame" x="241" y="65" width="82" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="push" title="Never" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="tS3-nD-jI7" id="jVc-0F-agO">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" title="OtherViews" id="wcq-LN-sul">
+                            <items>
+                                <menuItem title="Never" state="on" id="tS3-nD-jI7" userLabel="Menu Item - Never">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="changedRescanTime:" target="494" id="Q97-CY-Nvt"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Month" tag="1" id="ogC-Ep-aEb" userLabel="Menu Item - Month">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="changedRescanTime:" target="494" id="EE8-jk-2gb"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Week" tag="2" id="BCZ-0y-19r">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="changedRescanTime:" target="494" id="tYK-rX-Mia"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Day" tag="3" id="zHQ-VP-rP5">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="changedRescanTime:" target="494" id="TCX-Uc-QGL"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="5 hours" tag="4" id="7FI-9G-59f">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="changedRescanTime:" target="494" id="1F3-ak-fQe"/>
+                                    </connections>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WqO-HF-Pzl">
+                    <rect key="frame" x="17" y="71" width="220" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Rescan files already scanned every" id="Kg3-nN-GuP">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </view>
+        <view id="6sG-Rr-hBK" userLabel="confAccountView">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xhd-02-i8V">
+                    <rect key="frame" x="13" y="10" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="h2S-ys-Ljo"/>
+                        <constraint firstAttribute="height" constant="48" id="liJ-KG-9CQ"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="ydf-Jj-LHA"/>
+                </imageView>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lTd-HS-HQQ" userLabel="Text Field">
+                    <rect key="frame" x="85" y="131" width="255" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" usesSingleLineMode="YES" id="MGt-UR-Q4b">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="editedAPIKey:" target="494" id="Ii6-gd-szI"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-96-ZcH">
+                    <rect key="frame" x="29" y="133" width="51" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="API Key" id="uYT-fY-31w">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-8b-O3N">
+                    <rect key="frame" x="95" y="79" width="234" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="8h9-Kv-pHE">
+                        <rect key="frame" x="0.0" y="0.0" width="234" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" drawsBackground="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="GkJ-PA-mlX">
+                                <rect key="frame" x="0.0" y="0.0" width="234" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="234" height="44"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment content="In order to use Metascan features you need to obtain an API key. You can get it for free by signing up ">
+                                        <attributes>
+                                            <font key="NSFont" size="11" name="LucidaGrande"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="here">
+                                        <attributes>
+                                            <font key="NSFont" size="11" name="LucidaGrande"/>
+                                            <url key="NSLink" string="https://portal.opswat.com/metascan-online-api"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="234" height="44"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="gWc-eO-iyV">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="hfJ-yg-DgX">
+                        <rect key="frame" x="-100" y="-100" width="16" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OiV-qN-baK">
+                    <rect key="frame" x="62" y="5" width="188" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="184" id="o0a-yJ-fpB"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="4hs-Z8-qZ6">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wyw-VW-qcC">
+                    <rect key="frame" x="342" y="129" width="18" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStopProgressTemplate" id="cc7-sm-FFv"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="4Iy-96-ZcH" firstAttribute="leading" secondItem="6sG-Rr-hBK" secondAttribute="leading" constant="31" id="1dn-zw-9Rj"/>
+                <constraint firstItem="lY6-8b-O3N" firstAttribute="leading" secondItem="6sG-Rr-hBK" secondAttribute="leading" constant="95" id="Clg-iU-SPZ"/>
+                <constraint firstItem="OiV-qN-baK" firstAttribute="leading" secondItem="Xhd-02-i8V" secondAttribute="trailing" constant="3" id="Fb9-8T-Lm2"/>
+                <constraint firstItem="lTd-HS-HQQ" firstAttribute="baseline" secondItem="4Iy-96-ZcH" secondAttribute="baseline" id="Nvv-6F-kPG"/>
+                <constraint firstAttribute="bottom" secondItem="OiV-qN-baK" secondAttribute="bottom" constant="5" id="RjL-h3-gqH"/>
+                <constraint firstItem="lTd-HS-HQQ" firstAttribute="top" secondItem="6sG-Rr-hBK" secondAttribute="top" constant="20" symbolic="YES" id="VCE-gL-iQD"/>
+                <constraint firstItem="lTd-HS-HQQ" firstAttribute="leading" secondItem="4Iy-96-ZcH" secondAttribute="trailing" constant="7" id="XDy-2b-8js"/>
+                <constraint firstAttribute="trailing" secondItem="lTd-HS-HQQ" secondAttribute="trailing" constant="32" id="iBt-xu-0CF"/>
+                <constraint firstItem="lY6-8b-O3N" firstAttribute="centerX" secondItem="lTd-HS-HQQ" secondAttribute="centerX" id="iwz-tx-KMx"/>
+                <constraint firstItem="lY6-8b-O3N" firstAttribute="top" secondItem="lTd-HS-HQQ" secondAttribute="bottom" constant="8" symbolic="YES" id="k0f-hr-CmM"/>
+                <constraint firstItem="OiV-qN-baK" firstAttribute="top" secondItem="lY6-8b-O3N" secondAttribute="bottom" constant="57" id="ku0-43-bE2"/>
+                <constraint firstItem="Xhd-02-i8V" firstAttribute="top" secondItem="4Iy-96-ZcH" secondAttribute="bottom" constant="75" id="txt-5s-fI1"/>
+                <constraint firstAttribute="bottom" secondItem="lY6-8b-O3N" secondAttribute="bottom" constant="79" id="xY2-0E-9fj"/>
+                <constraint firstItem="Xhd-02-i8V" firstAttribute="leading" secondItem="6sG-Rr-hBK" secondAttribute="leading" constant="13" id="yIM-ja-9nW"/>
+            </constraints>
+        </view>
+        <view id="fqH-3J-Ije" userLabel="confRresultsView">
+            <rect key="frame" x="0.0" y="0.0" width="471" height="327"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25j-9C-u32">
+                    <rect key="frame" x="13" y="10" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="nJc-es-0XC"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="n9c-jo-9fz"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qMp-RL-YZW">
+                    <rect key="frame" x="62" y="5" width="188" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="EsN-6e-5Db"/>
+                        <constraint firstAttribute="width" constant="184" id="W08-iG-Naf"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="uwq-PX-XuK">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szQ-zn-lLV">
+                    <rect key="frame" x="20" y="74" width="431" height="208"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" focusRingType="none" id="ecO-7u-ZyT">
+                        <rect key="frame" x="1" y="17" width="429" height="190"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="yjy-de-He6" id="Lar-T0-gLD">
+                                <rect key="frame" x="0.0" y="0.0" width="889" height="190"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="status" editable="NO" width="83" minWidth="40" maxWidth="1000" id="Wu6-cn-m0U">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="xig-oN-Hih">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </tableColumn>
+                                    <tableColumn identifier="filename" editable="NO" width="160.0859375" minWidth="40" maxWidth="1000" id="Z5Y-31-Nh2">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Filename">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="3K9-eh-3IE">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                    </tableColumn>
+                                    <tableColumn identifier="path" editable="NO" width="637.19921875" minWidth="10" maxWidth="3.4028234663852886e+38" id="pTC-vB-qku">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Path">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="mMR-vW-lYR">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="494" id="wzm-KS-oXg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="8c8-2x-UK1">
+                        <rect key="frame" x="1" y="191" width="429" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="dMg-ty-vlk">
+                        <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <tableHeaderView key="headerView" id="yjy-de-He6">
+                        <rect key="frame" x="0.0" y="0.0" width="889" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableHeaderView>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-EJ-RQc">
+                    <rect key="frame" x="20" y="290" width="51" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Threats" id="yB0-bv-07o">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="szQ-zn-lLV" secondAttribute="trailing" constant="20" symbolic="YES" id="8sg-GT-bAM"/>
+                <constraint firstItem="c0N-EJ-RQc" firstAttribute="top" secondItem="fqH-3J-Ije" secondAttribute="top" constant="20" symbolic="YES" id="DOJ-yx-B8a"/>
+                <constraint firstItem="szQ-zn-lLV" firstAttribute="top" secondItem="c0N-EJ-RQc" secondAttribute="bottom" constant="8" symbolic="YES" id="QjG-UD-dDV"/>
+                <constraint firstItem="qMp-RL-YZW" firstAttribute="leading" secondItem="25j-9C-u32" secondAttribute="trailing" constant="3" id="RMY-GW-ZhI"/>
+                <constraint firstItem="25j-9C-u32" firstAttribute="top" secondItem="szQ-zn-lLV" secondAttribute="bottom" constant="16" id="ZAX-KR-zV5"/>
+                <constraint firstAttribute="bottom" secondItem="qMp-RL-YZW" secondAttribute="bottom" constant="5" id="fb9-uO-YLW"/>
+                <constraint firstAttribute="bottom" secondItem="25j-9C-u32" secondAttribute="bottom" constant="10" id="hUj-Ey-eOD"/>
+                <constraint firstItem="qMp-RL-YZW" firstAttribute="top" secondItem="szQ-zn-lLV" secondAttribute="bottom" constant="52" id="k1e-ZL-px3"/>
+                <constraint firstItem="c0N-EJ-RQc" firstAttribute="leading" secondItem="fqH-3J-Ije" secondAttribute="leading" constant="22" id="oVj-V1-HbD"/>
+                <constraint firstItem="szQ-zn-lLV" firstAttribute="leading" secondItem="fqH-3J-Ije" secondAttribute="leading" constant="20" symbolic="YES" id="yec-vr-X90"/>
+                <constraint firstItem="25j-9C-u32" firstAttribute="leading" secondItem="fqH-3J-Ije" secondAttribute="leading" constant="13" id="yiW-kc-lCR"/>
+            </constraints>
+        </view>
+        <view id="SYD-bU-X7X" userLabel="confAboutView">
+            <rect key="frame" x="0.0" y="0.0" width="471" height="328"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3S-HY-cZm">
+                    <rect key="frame" x="13" y="10" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="f2o-WR-zm2"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="Bai-KI-UdG"/>
+                </imageView>
+                <textField canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RMW-Wq-ea9">
+                    <rect key="frame" x="62" y="5" width="189" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="185" id="Ld6-i4-Ljj"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="Qnv-aS-fWw">
+                        <font key="font" size="11" name="LucidaGrande"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-RK-eAH">
+                    <rect key="frame" x="13" y="282" width="114" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="114" id="OwB-wh-gT4"/>
+                        <constraint firstAttribute="height" constant="26" id="uZs-Yk-5cL"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="minilogo" id="KIg-8V-lbk"/>
+                </imageView>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="lrf-jI-ZM2">
+                    <rect key="frame" x="384" y="35" width="47" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="47" id="IE3-he-3Qz"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" title="Legal" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="VYN-UP-ma4">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showLegal:" target="494" id="xGX-ih-5h8"/>
+                    </connections>
+                </button>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qd7-19-m6A">
+                    <rect key="frame" x="13" y="66" width="438" height="213"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="fqP-hR-Enf">
+                        <rect key="frame" x="1" y="1" width="436" height="211"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" drawsBackground="NO" importsGraphics="NO" baseWritingDirection="leftToRight" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="6TH-cb-ErF">
+                                <rect key="frame" x="0.0" y="0.0" width="436" height="211"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="436" height="211"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="OPSWAT">
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <url key="NSLink" string="http://www.opswat.com"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> is the leading provider of software management and security technologies. Our solutions are simplified and comprehensive, solving complex development problems to reduce time and costs for IT professionals, software engineers and support teams.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="31.300000000000001">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="31.299999237060547"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Metascan Online">
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <url key="NSLink" string="https://www.metascan-online.com/"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="31.300000000000001">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="31.299999237060547"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> is a free online file scanning service powered by OPSWAT’s Metascan technology, a multiple engine malware scanning solution.
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="31.300000000000001">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="31.299999237060547"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">No single anti-malware engine is perfect 100% of the time. Using multiple engines to scan for threats allows you to take advantage of the strengths of each individual engine and to guarantee the earliest possible detection. OPSWAT's multi-scanning technology optimizes the included engines to enable fast, simultaneous scanning and eliminates the hassle of licensing multiple products.
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="LucidaSans"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="436" height="211"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="rKm-Ja-BQt">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="hb7-tN-OeD">
+                        <rect key="frame" x="421" y="1" width="16" height="211"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4EI-Yg-Wlx">
+                    <rect key="frame" x="428" y="38" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yhe-sl-Z1x">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showLegal:" target="494" id="zWR-Iw-I6Z"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="z2r-RK-eAH" firstAttribute="leading" secondItem="SYD-bU-X7X" secondAttribute="leading" constant="13" id="0Ov-a9-Vtf"/>
+                <constraint firstItem="RMW-Wq-ea9" firstAttribute="top" secondItem="Qd7-19-m6A" secondAttribute="bottom" constant="44" id="1tB-fg-cwr"/>
+                <constraint firstAttribute="bottom" secondItem="H3S-HY-cZm" secondAttribute="bottom" constant="10" id="7EB-1a-xxU"/>
+                <constraint firstItem="H3S-HY-cZm" firstAttribute="top" secondItem="Qd7-19-m6A" secondAttribute="bottom" constant="8" symbolic="YES" id="7OX-mW-GhU"/>
+                <constraint firstAttribute="bottom" secondItem="RMW-Wq-ea9" secondAttribute="bottom" constant="5" id="AvB-qx-X6e"/>
+                <constraint firstAttribute="trailing" secondItem="lrf-jI-ZM2" secondAttribute="trailing" constant="40" id="Hx9-QI-Eoc"/>
+                <constraint firstItem="Qd7-19-m6A" firstAttribute="top" secondItem="z2r-RK-eAH" secondAttribute="bottom" constant="3" id="OD5-B2-vqD"/>
+                <constraint firstItem="Qd7-19-m6A" firstAttribute="leading" secondItem="z2r-RK-eAH" secondAttribute="leading" id="Tun-5U-q4W"/>
+                <constraint firstItem="RMW-Wq-ea9" firstAttribute="leading" secondItem="H3S-HY-cZm" secondAttribute="trailing" constant="3" id="YcH-bc-vaD"/>
+                <constraint firstItem="4EI-Yg-Wlx" firstAttribute="top" secondItem="Qd7-19-m6A" secondAttribute="bottom" constant="4" id="chn-d3-dQs"/>
+                <constraint firstItem="z2r-RK-eAH" firstAttribute="top" secondItem="SYD-bU-X7X" secondAttribute="top" constant="20" symbolic="YES" id="d2B-5R-R8T"/>
+                <constraint firstAttribute="trailing" secondItem="Qd7-19-m6A" secondAttribute="trailing" constant="20" symbolic="YES" id="fqR-NY-EUW"/>
+                <constraint firstAttribute="bottom" secondItem="lrf-jI-ZM2" secondAttribute="bottom" constant="35" id="gAG-Ef-r28"/>
+                <constraint firstItem="Qd7-19-m6A" firstAttribute="trailing" secondItem="4EI-Yg-Wlx" secondAttribute="trailing" id="iHQ-V1-cCC"/>
+                <constraint firstItem="4EI-Yg-Wlx" firstAttribute="centerY" secondItem="lrf-jI-ZM2" secondAttribute="centerY" id="y1C-xD-f9U"/>
+                <constraint firstItem="Qd7-19-m6A" firstAttribute="leading" secondItem="H3S-HY-cZm" secondAttribute="leading" id="zNW-ky-CTY"/>
+            </constraints>
+        </view>
+        <window title="Legal" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="47X-lb-AVj" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="85" width="542" height="371"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <view key="contentView" id="O5R-1R-4B9">
+                <rect key="frame" x="0.0" y="0.0" width="542" height="371"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-pa-3yo">
+                        <rect key="frame" x="20" y="20" width="502" height="331"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0I4-HM-3au">
+                            <rect key="frame" x="0.0" y="0.0" width="502" height="331"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" baseWritingDirection="leftToRight" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="we1-Ch-tvo">
+                                    <rect key="frame" x="0.0" y="0.0" width="502" height="331"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="502" height="331"/>
+                                    <size key="maxSize" width="600" height="10000000"/>
+                                    <attributedString key="textStorage">
+                                        <fragment content="jsoncpp Library">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">
+Copyright © 2009 Baptiste Lepilleur &lt;blep@users.sourceforge.org&gt;</string>
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Released to the public domain.">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="CNUserNotification Library">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">
+Copyright © 2013 Frank Gregor</string>
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">The CNUserNotification library source code is released under The MIT License, which permits commercial as well as non-commercial use:</string>
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.52941176470588236" green="0.53333333333333333" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.">
+                                            <attributes>
+                                                <color key="NSColor" red="0.52941176470588236" green="0.53333333333333333" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE ARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.52941176470588236" green="0.53333333333333333" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.52941176470588236" green="0.53333333333333333" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="PFMoveApplication Library">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">
+Copyright © 2009 Andy Kim</string>
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Released to the public domain.">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="11" name="LucidaGrande"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="502" height="331"/>
+                                    <size key="maxSize" width="600" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="UAw-zo-DkQ">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Kwk-Dp-5Jb">
+                            <rect key="frame" x="486" y="0.0" width="16" height="331"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sM3-pa-3yo" firstAttribute="leading" secondItem="O5R-1R-4B9" secondAttribute="leading" constant="20" symbolic="YES" id="2rq-6l-6Bz"/>
+                    <constraint firstItem="sM3-pa-3yo" firstAttribute="top" secondItem="O5R-1R-4B9" secondAttribute="top" constant="20" symbolic="YES" id="VvB-C2-ib3"/>
+                    <constraint firstAttribute="trailing" secondItem="sM3-pa-3yo" secondAttribute="trailing" constant="20" symbolic="YES" id="WWI-qg-8kH"/>
+                    <constraint firstAttribute="bottom" secondItem="sM3-pa-3yo" secondAttribute="bottom" constant="20" symbolic="YES" id="hKf-i8-bXx"/>
+                </constraints>
+            </view>
+        </window>
+        <window title="SmartFolder Configuration" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="cP8-t8-ttI" userLabel="configWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" unifiedTitleAndToolbar="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="687" y="448" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <view key="contentView" id="cZr-7o-9ug">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEj-GT-JZ8" userLabel="copy">
+                        <rect key="frame" x="107" y="84" width="40" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="db6-jI-VSN" userLabel="copy">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent">c</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="copy:" target="-1" id="r2w-Nh-HQm"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wX3-cz-Elx" userLabel="cut">
+                        <rect key="frame" x="177" y="84" width="40" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="ZBE-A3-ECk" userLabel="cut">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent">x</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cut:" target="-1" id="lIy-1X-Bxd"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5qM-7u-Ggu" userLabel="paste">
+                        <rect key="frame" x="237" y="84" width="40" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="IwT-4M-geR" userLabel="paste">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent">v</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="paste:" target="-1" id="CNG-oH-tQk"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="9A463803-84CD-4215-B330-935789F3FDED" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="1Pl-Dx-ilm">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="F76A1955-A46F-40A7-AB9D-87248B79A1DD" explicitItemIdentifier="smartFolderToolbarItem" label="SmartFolder" paletteLabel="SmartFolder" image="NSFolder" selectable="YES" id="eDA-Cr-Brx">
+                        <connections>
+                            <action selector="switchConfView:" target="494" id="clT-kX-Npw"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="4819B30F-1EAF-49D7-960D-F367AAF376F2" explicitItemIdentifier="accountToolbarItem" label="Account" paletteLabel="Account" tag="1" image="NSUser" selectable="YES" id="Dxs-si-f3o">
+                        <connections>
+                            <action selector="switchConfView:" target="494" id="Tfu-6z-fXm"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="41FB03C5-45E5-40CC-A528-F6DC9032DF8F" explicitItemIdentifier="resultsToolbarItem" label="Scan Results" paletteLabel="Scan Results" tag="2" image="NSPathTemplate" selectable="YES" id="xWD-Sg-oTt" userLabel="Toolbar Item - ScanResults">
+                        <connections>
+                            <action selector="switchConfView:" target="494" id="k5i-cG-9yb"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="jck-ei-KFg"/>
+                    <toolbarItem implicitItemIdentifier="23BC98E5-2449-48B3-B88A-0ECF291C6EA9" explicitItemIdentifier="aboutToolbarItem" label="About" paletteLabel="About" tag="5" image="NSInfo" selectable="YES" id="P8m-6b-dG0">
+                        <connections>
+                            <action selector="switchConfView:" target="494" id="xls-6I-hkl"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="eDA-Cr-Brx"/>
+                    <toolbarItem reference="Dxs-si-f3o"/>
+                    <toolbarItem reference="xWD-Sg-oTt"/>
+                    <toolbarItem reference="jck-ei-KFg"/>
+                    <toolbarItem reference="P8m-6b-dG0"/>
+                </defaultToolbarItems>
+            </toolbar>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSFolder" width="32" height="32"/>
+        <image name="NSInfo" width="32" height="32"/>
+        <image name="NSPathTemplate" width="13" height="10"/>
+        <image name="NSStopProgressTemplate" width="11" height="11"/>
+        <image name="NSUser" width="32" height="32"/>
+        <image name="metascanonline-logo2" width="281" height="31"/>
+        <image name="minilogo" width="110" height="12"/>
+    </resources>
+</document>

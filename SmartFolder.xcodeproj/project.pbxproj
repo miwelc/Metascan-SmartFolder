@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4941AC9D182C315700455DC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4941AC9C182C315700455DC6 /* QuartzCore.framework */; };
+		498EF8B6182FA21600A33B1B /* infected.png in Resources */ = {isa = PBXBuildFile; fileRef = 498EF8B5182FA21600A33B1B /* infected.png */; };
+		499A20D6182C531A001C5177 /* CNUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A20C7182C531A001C5177 /* CNUserNotification.m */; };
+		499A20D7182C531A001C5177 /* CNUserNotificationBannerBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A20C9182C531A001C5177 /* CNUserNotificationBannerBackgroundView.m */; };
+		499A20D8182C531A001C5177 /* CNUserNotificationBannerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A20CB182C531A001C5177 /* CNUserNotificationBannerButton.m */; };
+		499A20D9182C531A001C5177 /* CNUserNotificationBannerButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A20CD182C531A001C5177 /* CNUserNotificationBannerButtonCell.m */; };
+		499A20DA182C531A001C5177 /* CNUserNotificationBannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A20CF182C531A001C5177 /* CNUserNotificationBannerController.m */; };
+		499A20DB182C531A001C5177 /* CNUserNotificationCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 499A20D1182C531A001C5177 /* CNUserNotificationCenter.mm */; };
+		499A20DC182C531A001C5177 /* CNUserNotificationDefaultSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = 499A20D3182C531A001C5177 /* CNUserNotificationDefaultSound.aif */; };
+		499A20DD182C531A001C5177 /* CNUserNotificationFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A20D5182C531A001C5177 /* CNUserNotificationFeature.m */; };
+		49AE9EC4183204AA006F16E6 /* hash.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49AE9EC3183204AA006F16E6 /* hash.mm */; };
+		49B0904E1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0904B1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.m */; };
+		49B0904F1824B05A00FFE6D7 /* PFMoveApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49B0904D1824B05A00FFE6D7 /* PFMoveApplication.mm */; };
+		49B33EB81825C60A002268C4 /* DB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B33EB61825C60A002268C4 /* DB.cpp */; };
+		49B33EBA1825E982002268C4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B33EB91825E982002268C4 /* libsqlite3.dylib */; };
+		49B33EBD1826281B002268C4 /* version.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49B33EBC1826281B002268C4 /* version.mm */; };
+		49B3C0A01827C7800054CCD8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B3C09F1827C7800054CCD8 /* MainMenu.xib */; };
+		49B5C074182B5CFD00FE2C55 /* minilogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C073182B5CFD00FE2C55 /* minilogo.png */; };
+		E318B0B818123484000FF209 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E318B0B718123484000FF209 /* Cocoa.framework */; };
+		E318B0C418123484000FF209 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E318B0C318123484000FF209 /* main.m */; };
+		E318B0CB18123484000FF209 /* SFAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E318B0CA18123484000FF209 /* SFAppDelegate.mm */; };
+		E318B0D718123484000FF209 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E318B0D618123484000FF209 /* XCTest.framework */; };
+		E318B0D818123484000FF209 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E318B0B718123484000FF209 /* Cocoa.framework */; };
+		E318B0EF18125892000FF209 /* monitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E318B0EB18125892000FF209 /* monitor.cpp */; };
+		E318B0F018125892000FF209 /* scanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = E318B0ED18125892000FF209 /* scanner.mm */; };
+		E318B0F2181277E0000FF209 /* metascanonline-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E318B0F1181277E0000FF209 /* metascanonline-logo.png */; };
+		E318B0F4181279EA000FF209 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E318B0F3181279EA000FF209 /* Images.xcassets */; };
+		E3A1354A1814E91800396544 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A135491814E91800396544 /* Security.framework */; };
+		E3B41B90181BAD310053C298 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B41B8F181BAD310053C298 /* libcurl.dylib */; };
+		E3BE67E11816555C00ECBC0A /* metascanonline-logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BE67E01816555C00ECBC0A /* metascanonline-logo2.png */; };
+		E3F6F9D9181BE33F00F42EB0 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = E3F6F9CF181BE33F00F42EB0 /* json_internalarray.inl */; };
+		E3F6F9DA181BE33F00F42EB0 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = E3F6F9D0181BE33F00F42EB0 /* json_internalmap.inl */; };
+		E3F6F9DB181BE33F00F42EB0 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3F6F9D1181BE33F00F42EB0 /* json_reader.cpp */; };
+		E3F6F9DC181BE33F00F42EB0 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3F6F9D2181BE33F00F42EB0 /* json_value.cpp */; };
+		E3F6F9DD181BE33F00F42EB0 /* json_valueiterator.inl in Resources */ = {isa = PBXBuildFile; fileRef = E3F6F9D3181BE33F00F42EB0 /* json_valueiterator.inl */; };
+		E3F6F9DE181BE33F00F42EB0 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3F6F9D4181BE33F00F42EB0 /* json_writer.cpp */; };
+		E3F6F9DF181BE33F00F42EB0 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = E3F6F9D6181BE33F00F42EB0 /* sconscript */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E318B0D918123484000FF209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E318B0AC18123484000FF209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E318B0B318123484000FF209;
+			remoteInfo = SmartFolder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4941AC9C182C315700455DC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		498EF8B5182FA21600A33B1B /* infected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected.png; sourceTree = "<group>"; };
+		499A20C6182C531A001C5177 /* CNUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotification.h; sourceTree = "<group>"; };
+		499A20C7182C531A001C5177 /* CNUserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserNotification.m; sourceTree = "<group>"; };
+		499A20C8182C531A001C5177 /* CNUserNotificationBannerBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationBannerBackgroundView.h; sourceTree = "<group>"; };
+		499A20C9182C531A001C5177 /* CNUserNotificationBannerBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserNotificationBannerBackgroundView.m; sourceTree = "<group>"; };
+		499A20CA182C531A001C5177 /* CNUserNotificationBannerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationBannerButton.h; sourceTree = "<group>"; };
+		499A20CB182C531A001C5177 /* CNUserNotificationBannerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserNotificationBannerButton.m; sourceTree = "<group>"; };
+		499A20CC182C531A001C5177 /* CNUserNotificationBannerButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationBannerButtonCell.h; sourceTree = "<group>"; };
+		499A20CD182C531A001C5177 /* CNUserNotificationBannerButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserNotificationBannerButtonCell.m; sourceTree = "<group>"; };
+		499A20CE182C531A001C5177 /* CNUserNotificationBannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationBannerController.h; sourceTree = "<group>"; };
+		499A20CF182C531A001C5177 /* CNUserNotificationBannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserNotificationBannerController.m; sourceTree = "<group>"; };
+		499A20D0182C531A001C5177 /* CNUserNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationCenter.h; sourceTree = "<group>"; };
+		499A20D1182C531A001C5177 /* CNUserNotificationCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CNUserNotificationCenter.mm; sourceTree = "<group>"; };
+		499A20D2182C531A001C5177 /* CNUserNotificationCenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationCenterDelegate.h; sourceTree = "<group>"; };
+		499A20D3182C531A001C5177 /* CNUserNotificationDefaultSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = CNUserNotificationDefaultSound.aif; sourceTree = "<group>"; };
+		499A20D4182C531A001C5177 /* CNUserNotificationFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNUserNotificationFeature.h; sourceTree = "<group>"; };
+		499A20D5182C531A001C5177 /* CNUserNotificationFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNUserNotificationFeature.m; sourceTree = "<group>"; };
+		49AE9EC3183204AA006F16E6 /* hash.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hash.mm; sourceTree = "<group>"; };
+		49AE9EC51832056F006F16E6 /* hash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		49B0904A1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SymlinksAndAliases.h"; sourceTree = "<group>"; };
+		49B0904B1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SymlinksAndAliases.m"; sourceTree = "<group>"; };
+		49B0904C1824B05A00FFE6D7 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		49B0904D1824B05A00FFE6D7 /* PFMoveApplication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFMoveApplication.mm; sourceTree = "<group>"; };
+		49B33EB61825C60A002268C4 /* DB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DB.cpp; sourceTree = "<group>"; };
+		49B33EB71825C60A002268C4 /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB.h; sourceTree = "<group>"; };
+		49B33EB91825E982002268C4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		49B33EBB18262584002268C4 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		49B33EBC1826281B002268C4 /* version.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = version.mm; sourceTree = "<group>"; };
+		49B3C09F1827C7800054CCD8 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		49B5C073182B5CFD00FE2C55 /* minilogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minilogo.png; sourceTree = "<group>"; };
+		E318B0B418123484000FF209 /* SmartFolder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartFolder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E318B0B718123484000FF209 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E318B0BA18123484000FF209 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E318B0BB18123484000FF209 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E318B0BC18123484000FF209 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E318B0BF18123484000FF209 /* SmartFolder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartFolder-Info.plist"; sourceTree = "<group>"; };
+		E318B0C318123484000FF209 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E318B0C518123484000FF209 /* SmartFolder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartFolder-Prefix.pch"; sourceTree = "<group>"; };
+		E318B0C918123484000FF209 /* SFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFAppDelegate.h; sourceTree = "<group>"; };
+		E318B0CA18123484000FF209 /* SFAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SFAppDelegate.mm; sourceTree = "<group>"; };
+		E318B0D518123484000FF209 /* SmartFolderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartFolderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E318B0D618123484000FF209 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E318B0EB18125892000FF209 /* monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = monitor.cpp; sourceTree = "<group>"; };
+		E318B0EC18125892000FF209 /* monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monitor.h; sourceTree = "<group>"; };
+		E318B0ED18125892000FF209 /* scanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = scanner.mm; sourceTree = "<group>"; };
+		E318B0EE18125892000FF209 /* scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scanner.h; sourceTree = "<group>"; };
+		E318B0F1181277E0000FF209 /* metascanonline-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "metascanonline-logo.png"; sourceTree = "<group>"; };
+		E318B0F3181279EA000FF209 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E3A135491814E91800396544 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E3B41B8F181BAD310053C298 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		E3BE67E01816555C00ECBC0A /* metascanonline-logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "metascanonline-logo2.png"; sourceTree = "<group>"; };
+		E3F6F9C9181BE33E00F42EB0 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
+		E3F6F9CA181BE33E00F42EB0 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		E3F6F9CB181BE33E00F42EB0 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
+		E3F6F9CC181BE33F00F42EB0 /* forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forwards.h; sourceTree = "<group>"; };
+		E3F6F9CD181BE33F00F42EB0 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		E3F6F9CE181BE33F00F42EB0 /* json_batchallocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_batchallocator.h; sourceTree = "<group>"; };
+		E3F6F9CF181BE33F00F42EB0 /* json_internalarray.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_internalarray.inl; sourceTree = "<group>"; };
+		E3F6F9D0181BE33F00F42EB0 /* json_internalmap.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_internalmap.inl; sourceTree = "<group>"; };
+		E3F6F9D1181BE33F00F42EB0 /* json_reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_reader.cpp; sourceTree = "<group>"; };
+		E3F6F9D2181BE33F00F42EB0 /* json_value.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_value.cpp; sourceTree = "<group>"; };
+		E3F6F9D3181BE33F00F42EB0 /* json_valueiterator.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_valueiterator.inl; sourceTree = "<group>"; };
+		E3F6F9D4181BE33F00F42EB0 /* json_writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_writer.cpp; sourceTree = "<group>"; };
+		E3F6F9D5181BE33F00F42EB0 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		E3F6F9D6181BE33F00F42EB0 /* sconscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sconscript; sourceTree = "<group>"; };
+		E3F6F9D7181BE33F00F42EB0 /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
+		E3F6F9D8181BE33F00F42EB0 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E318B0B118123484000FF209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4941AC9D182C315700455DC6 /* QuartzCore.framework in Frameworks */,
+				49B33EBA1825E982002268C4 /* libsqlite3.dylib in Frameworks */,
+				E3B41B90181BAD310053C298 /* libcurl.dylib in Frameworks */,
+				E3A1354A1814E91800396544 /* Security.framework in Frameworks */,
+				E318B0B818123484000FF209 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E318B0D218123484000FF209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E318B0D818123484000FF209 /* Cocoa.framework in Frameworks */,
+				E318B0D718123484000FF209 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		499A20C5182C531A001C5177 /* CNUserNotification */ = {
+			isa = PBXGroup;
+			children = (
+				499A20C6182C531A001C5177 /* CNUserNotification.h */,
+				499A20C7182C531A001C5177 /* CNUserNotification.m */,
+				499A20C8182C531A001C5177 /* CNUserNotificationBannerBackgroundView.h */,
+				499A20C9182C531A001C5177 /* CNUserNotificationBannerBackgroundView.m */,
+				499A20CA182C531A001C5177 /* CNUserNotificationBannerButton.h */,
+				499A20CB182C531A001C5177 /* CNUserNotificationBannerButton.m */,
+				499A20CC182C531A001C5177 /* CNUserNotificationBannerButtonCell.h */,
+				499A20CD182C531A001C5177 /* CNUserNotificationBannerButtonCell.m */,
+				499A20CE182C531A001C5177 /* CNUserNotificationBannerController.h */,
+				499A20CF182C531A001C5177 /* CNUserNotificationBannerController.m */,
+				499A20D0182C531A001C5177 /* CNUserNotificationCenter.h */,
+				499A20D1182C531A001C5177 /* CNUserNotificationCenter.mm */,
+				499A20D2182C531A001C5177 /* CNUserNotificationCenterDelegate.h */,
+				499A20D3182C531A001C5177 /* CNUserNotificationDefaultSound.aif */,
+				499A20D4182C531A001C5177 /* CNUserNotificationFeature.h */,
+				499A20D5182C531A001C5177 /* CNUserNotificationFeature.m */,
+			);
+			path = CNUserNotification;
+			sourceTree = "<group>";
+		};
+		49B090491824B05A00FFE6D7 /* MoveApplication */ = {
+			isa = PBXGroup;
+			children = (
+				49B0904A1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.h */,
+				49B0904B1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.m */,
+				49B0904C1824B05A00FFE6D7 /* PFMoveApplication.h */,
+				49B0904D1824B05A00FFE6D7 /* PFMoveApplication.mm */,
+			);
+			path = MoveApplication;
+			sourceTree = "<group>";
+		};
+		E318B0AB18123484000FF209 = {
+			isa = PBXGroup;
+			children = (
+				E318B0BD18123484000FF209 /* SmartFolder */,
+				E318B0B618123484000FF209 /* Frameworks */,
+				E318B0B518123484000FF209 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E318B0B518123484000FF209 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E318B0B418123484000FF209 /* SmartFolder.app */,
+				E318B0D518123484000FF209 /* SmartFolderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E318B0B618123484000FF209 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4941AC9C182C315700455DC6 /* QuartzCore.framework */,
+				49B33EB91825E982002268C4 /* libsqlite3.dylib */,
+				E3B41B8F181BAD310053C298 /* libcurl.dylib */,
+				E3A135491814E91800396544 /* Security.framework */,
+				E318B0B718123484000FF209 /* Cocoa.framework */,
+				E318B0D618123484000FF209 /* XCTest.framework */,
+				E318B0B918123484000FF209 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E318B0B918123484000FF209 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E318B0BA18123484000FF209 /* AppKit.framework */,
+				E318B0BB18123484000FF209 /* CoreData.framework */,
+				E318B0BC18123484000FF209 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E318B0BD18123484000FF209 /* SmartFolder */ = {
+			isa = PBXGroup;
+			children = (
+				E318B0EB18125892000FF209 /* monitor.cpp */,
+				E318B0EC18125892000FF209 /* monitor.h */,
+				E318B0ED18125892000FF209 /* scanner.mm */,
+				E318B0EE18125892000FF209 /* scanner.h */,
+				E318B0C918123484000FF209 /* SFAppDelegate.h */,
+				E318B0CA18123484000FF209 /* SFAppDelegate.mm */,
+				49B3C09F1827C7800054CCD8 /* MainMenu.xib */,
+				49B33EB61825C60A002268C4 /* DB.cpp */,
+				49B33EB71825C60A002268C4 /* DB.h */,
+				49B33EBB18262584002268C4 /* version.h */,
+				49B33EBC1826281B002268C4 /* version.mm */,
+				49AE9EC3183204AA006F16E6 /* hash.mm */,
+				49AE9EC51832056F006F16E6 /* hash.h */,
+				498EF8B5182FA21600A33B1B /* infected.png */,
+				E318B0F1181277E0000FF209 /* metascanonline-logo.png */,
+				E3BE67E01816555C00ECBC0A /* metascanonline-logo2.png */,
+				49B5C073182B5CFD00FE2C55 /* minilogo.png */,
+				499A20C5182C531A001C5177 /* CNUserNotification */,
+				49B090491824B05A00FFE6D7 /* MoveApplication */,
+				E3F6F9C8181BE33E00F42EB0 /* json */,
+				E318B0F3181279EA000FF209 /* Images.xcassets */,
+				E318B0BE18123484000FF209 /* Supporting Files */,
+			);
+			path = SmartFolder;
+			sourceTree = "<group>";
+		};
+		E318B0BE18123484000FF209 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E318B0BF18123484000FF209 /* SmartFolder-Info.plist */,
+				E318B0C318123484000FF209 /* main.m */,
+				E318B0C518123484000FF209 /* SmartFolder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E3F6F9C8181BE33E00F42EB0 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				E3F6F9C9181BE33E00F42EB0 /* autolink.h */,
+				E3F6F9CA181BE33E00F42EB0 /* config.h */,
+				E3F6F9CB181BE33E00F42EB0 /* features.h */,
+				E3F6F9CC181BE33F00F42EB0 /* forwards.h */,
+				E3F6F9CD181BE33F00F42EB0 /* json.h */,
+				E3F6F9CE181BE33F00F42EB0 /* json_batchallocator.h */,
+				E3F6F9CF181BE33F00F42EB0 /* json_internalarray.inl */,
+				E3F6F9D0181BE33F00F42EB0 /* json_internalmap.inl */,
+				E3F6F9D1181BE33F00F42EB0 /* json_reader.cpp */,
+				E3F6F9D2181BE33F00F42EB0 /* json_value.cpp */,
+				E3F6F9D3181BE33F00F42EB0 /* json_valueiterator.inl */,
+				E3F6F9D4181BE33F00F42EB0 /* json_writer.cpp */,
+				E3F6F9D5181BE33F00F42EB0 /* reader.h */,
+				E3F6F9D6181BE33F00F42EB0 /* sconscript */,
+				E3F6F9D7181BE33F00F42EB0 /* value.h */,
+				E3F6F9D8181BE33F00F42EB0 /* writer.h */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E318B0B318123484000FF209 /* SmartFolder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E318B0E518123484000FF209 /* Build configuration list for PBXNativeTarget "SmartFolder" */;
+			buildPhases = (
+				E318B0B018123484000FF209 /* Sources */,
+				E318B0B118123484000FF209 /* Frameworks */,
+				E318B0B218123484000FF209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartFolder;
+			productName = SmartFolder;
+			productReference = E318B0B418123484000FF209 /* SmartFolder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E318B0D418123484000FF209 /* SmartFolderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E318B0E818123484000FF209 /* Build configuration list for PBXNativeTarget "SmartFolderTests" */;
+			buildPhases = (
+				E318B0D118123484000FF209 /* Sources */,
+				E318B0D218123484000FF209 /* Frameworks */,
+				E318B0D318123484000FF209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E318B0DA18123484000FF209 /* PBXTargetDependency */,
+			);
+			name = SmartFolderTests;
+			productName = SmartFolderTests;
+			productReference = E318B0D518123484000FF209 /* SmartFolderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E318B0AC18123484000FF209 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SF;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Miguel Cantón Cortés";
+				TargetAttributes = {
+					E318B0B318123484000FF209 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					E318B0D418123484000FF209 = {
+						TestTargetID = E318B0B318123484000FF209;
+					};
+				};
+			};
+			buildConfigurationList = E318B0AF18123484000FF209 /* Build configuration list for PBXProject "SmartFolder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E318B0AB18123484000FF209;
+			productRefGroup = E318B0B518123484000FF209 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E318B0B318123484000FF209 /* SmartFolder */,
+				E318B0D418123484000FF209 /* SmartFolderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E318B0B218123484000FF209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3F6F9DD181BE33F00F42EB0 /* json_valueiterator.inl in Resources */,
+				49B3C0A01827C7800054CCD8 /* MainMenu.xib in Resources */,
+				49B5C074182B5CFD00FE2C55 /* minilogo.png in Resources */,
+				E3F6F9DA181BE33F00F42EB0 /* json_internalmap.inl in Resources */,
+				E318B0F4181279EA000FF209 /* Images.xcassets in Resources */,
+				E3F6F9DF181BE33F00F42EB0 /* sconscript in Resources */,
+				499A20DC182C531A001C5177 /* CNUserNotificationDefaultSound.aif in Resources */,
+				498EF8B6182FA21600A33B1B /* infected.png in Resources */,
+				E318B0F2181277E0000FF209 /* metascanonline-logo.png in Resources */,
+				E3F6F9D9181BE33F00F42EB0 /* json_internalarray.inl in Resources */,
+				E3BE67E11816555C00ECBC0A /* metascanonline-logo2.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E318B0D318123484000FF209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E318B0B018123484000FF209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				499A20DA182C531A001C5177 /* CNUserNotificationBannerController.m in Sources */,
+				E3F6F9DE181BE33F00F42EB0 /* json_writer.cpp in Sources */,
+				E318B0EF18125892000FF209 /* monitor.cpp in Sources */,
+				49B0904E1824B05A00FFE6D7 /* NSString+SymlinksAndAliases.m in Sources */,
+				E3F6F9DB181BE33F00F42EB0 /* json_reader.cpp in Sources */,
+				49B33EBD1826281B002268C4 /* version.mm in Sources */,
+				E318B0C418123484000FF209 /* main.m in Sources */,
+				499A20DD182C531A001C5177 /* CNUserNotificationFeature.m in Sources */,
+				499A20D6182C531A001C5177 /* CNUserNotification.m in Sources */,
+				49B33EB81825C60A002268C4 /* DB.cpp in Sources */,
+				E318B0F018125892000FF209 /* scanner.mm in Sources */,
+				499A20D7182C531A001C5177 /* CNUserNotificationBannerBackgroundView.m in Sources */,
+				E3F6F9DC181BE33F00F42EB0 /* json_value.cpp in Sources */,
+				E318B0CB18123484000FF209 /* SFAppDelegate.mm in Sources */,
+				499A20D9182C531A001C5177 /* CNUserNotificationBannerButtonCell.m in Sources */,
+				49AE9EC4183204AA006F16E6 /* hash.mm in Sources */,
+				499A20DB182C531A001C5177 /* CNUserNotificationCenter.mm in Sources */,
+				499A20D8182C531A001C5177 /* CNUserNotificationBannerButton.m in Sources */,
+				49B0904F1824B05A00FFE6D7 /* PFMoveApplication.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E318B0D118123484000FF209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E318B0DA18123484000FF209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E318B0B318123484000FF209 /* SmartFolder */;
+			targetProxy = E318B0D918123484000FF209 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E318B0E318123484000FF209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E318B0E418123484000FF209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E318B0E618123484000FF209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartFolder/SmartFolder-Prefix.pch";
+				INFOPLIST_FILE = "SmartFolder/SmartFolder-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E318B0E718123484000FF209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartFolder/SmartFolder-Prefix.pch";
+				INFOPLIST_FILE = "SmartFolder/SmartFolder-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E318B0E918123484000FF209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartFolder.app/Contents/MacOS/SmartFolder";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartFolder/SmartFolder-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SmartFolderTests/SmartFolderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E318B0EA18123484000FF209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmartFolder.app/Contents/MacOS/SmartFolder";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmartFolder/SmartFolder-Prefix.pch";
+				INFOPLIST_FILE = "SmartFolderTests/SmartFolderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E318B0AF18123484000FF209 /* Build configuration list for PBXProject "SmartFolder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E318B0E318123484000FF209 /* Debug */,
+				E318B0E418123484000FF209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E318B0E518123484000FF209 /* Build configuration list for PBXNativeTarget "SmartFolder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E318B0E618123484000FF209 /* Debug */,
+				E318B0E718123484000FF209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E318B0E818123484000FF209 /* Build configuration list for PBXNativeTarget "SmartFolderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E318B0E918123484000FF209 /* Debug */,
+				E318B0EA18123484000FF209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E318B0AC18123484000FF209 /* Project object */;
+}
