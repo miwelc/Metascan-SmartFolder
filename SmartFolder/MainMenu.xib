@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -35,16 +35,22 @@
         <customObject id="420" customClass="NSFontManager"/>
         <menu id="1PE-TB-h0R">
             <items>
-                <menuItem title="Configure" id="Brg-Xl-YQm">
+                <menuItem title="Scan status" id="FAX-R2-aJB">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="showConfiguration:" target="494" id="Sc1-4u-0HL"/>
+                        <action selector="showScanStatus:" target="494" id="KXh-eX-Pae"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Resume" tag="1" id="MbY-i9-f4Y">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="switchPauseResume:" target="494" id="EmM-hM-jI7"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Configure" id="Brg-Xl-YQm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showConfiguration:" target="494" id="Sc1-4u-0HL"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" id="cj2-eT-RY1">
@@ -56,7 +62,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Metascan SmartFolder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="hGO-us-4F4" userLabel="installWindow">
+        <window title="SmartFolder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="hGO-us-4F4" userLabel="installWindow">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="464" y="367" width="525" height="427"/>
@@ -555,51 +561,70 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7aB-FO-BnN">
-                        <rect key="frame" x="18" y="354" width="126" height="17"/>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Lcl-xg-T0Q">
+                        <rect key="frame" x="15" y="338" width="490" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="D56-Fe-oqM">
+                            <rect key="frame" x="0.0" y="0.0" width="490" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="fnz-zQ-8if">
+                                    <rect key="frame" x="0.0" y="0.0" width="490" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="490" height="44"/>
+                                    <size key="maxSize" width="490" height="10000000"/>
+                                    <attributedString key="textStorage">
+                                        <fragment content="It depends heavily on Metascan Online API and in order to use it you must accept these terms:">
+                                            <attributes>
+                                                <font key="NSFont" size="13" name=".LucidaGrandeUI"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="490" height="44"/>
+                                    <size key="maxSize" width="490" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="1n6-vP-84V">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="yNG-sV-q3n">
+                            <rect key="frame" x="-100" y="-100" width="16" height="44"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDt-7z-SCi">
+                        <rect key="frame" x="18" y="390" width="335" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="License agreement:" id="meb-gl-d0x">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This software has been developed by Miguel Canton." id="6sL-R5-ip5">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u5o-M1-lwA">
-                        <rect key="frame" x="229" y="378" width="276" height="42"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="276" id="YDe-Wy-gTM"/>
-                        </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="metascanonline-logo2" id="nfP-Ha-AXI"/>
-                    </imageView>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PEK-dd-quT">
-                        <rect key="frame" x="20" y="383" width="122" height="33"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="33" id="o9N-8q-ncv"/>
-                        </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="minilogo" id="Gfg-sY-C3v"/>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="PEK-dd-quT" firstAttribute="leading" secondItem="Obt-Yb-nOJ" secondAttribute="leading" constant="20" symbolic="YES" id="0FV-Uj-snV"/>
-                    <constraint firstItem="PEK-dd-quT" firstAttribute="leading" secondItem="7aB-FO-BnN" secondAttribute="leading" id="6sd-kc-soh"/>
-                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="top" secondItem="7aB-FO-BnN" secondAttribute="bottom" constant="8" symbolic="YES" id="72W-qF-fVw"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="leading" secondItem="mDt-7z-SCi" secondAttribute="leading" id="5f5-Eu-shM"/>
+                    <constraint firstAttribute="bottom" secondItem="Lcl-xg-T0Q" secondAttribute="bottom" constant="338" id="6cf-kv-iLk"/>
                     <constraint firstItem="bGW-GW-kHB" firstAttribute="top" secondItem="dyH-Ds-tOy" secondAttribute="bottom" constant="8" symbolic="YES" id="948-ln-uhb"/>
-                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="trailing" secondItem="u5o-M1-lwA" secondAttribute="trailing" id="Gwy-Yp-KHi"/>
+                    <constraint firstAttribute="trailing" secondItem="dyH-Ds-tOy" secondAttribute="trailing" constant="20" symbolic="YES" id="BIT-vG-r4E"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="leading" secondItem="Obt-Yb-nOJ" secondAttribute="leading" constant="20" symbolic="YES" id="KJ0-ze-myL"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="top" secondItem="mDt-7z-SCi" secondAttribute="bottom" constant="44" id="Kv3-df-Vm2"/>
                     <constraint firstItem="uCW-bt-iT5" firstAttribute="baseline" secondItem="BiG-OA-h9C" secondAttribute="baseline" id="Kxx-T5-rEw"/>
+                    <constraint firstItem="Lcl-xg-T0Q" firstAttribute="leading" secondItem="Obt-Yb-nOJ" secondAttribute="leading" constant="15" id="Lbn-sN-N6k"/>
                     <constraint firstItem="uCW-bt-iT5" firstAttribute="trailing" secondItem="dyH-Ds-tOy" secondAttribute="trailing" id="UDH-Qd-1EZ"/>
-                    <constraint firstItem="PEK-dd-quT" firstAttribute="trailing" secondItem="7aB-FO-BnN" secondAttribute="trailing" id="Zft-h3-f2s"/>
-                    <constraint firstAttribute="trailing" secondItem="u5o-M1-lwA" secondAttribute="trailing" constant="20" symbolic="YES" id="car-g7-263"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="top" secondItem="Obt-Yb-nOJ" secondAttribute="top" constant="81" id="aLq-Ed-gS5"/>
                     <constraint firstItem="dyH-Ds-tOy" firstAttribute="leading" secondItem="bGW-GW-kHB" secondAttribute="leading" id="ck8-c6-Y1l"/>
                     <constraint firstAttribute="bottom" secondItem="BiG-OA-h9C" secondAttribute="bottom" constant="20" symbolic="YES" id="d7K-l5-X3j"/>
-                    <constraint firstItem="u5o-M1-lwA" firstAttribute="centerY" secondItem="PEK-dd-quT" secondAttribute="centerY" id="isW-bF-1dq"/>
-                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="top" secondItem="u5o-M1-lwA" secondAttribute="bottom" constant="32" id="lQP-CN-Ia0"/>
+                    <constraint firstItem="Lcl-xg-T0Q" firstAttribute="top" secondItem="mDt-7z-SCi" secondAttribute="bottom" constant="8" symbolic="YES" id="hYC-Sw-F9c"/>
+                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="trailing" secondItem="Lcl-xg-T0Q" secondAttribute="trailing" id="jGG-62-hmn"/>
                     <constraint firstItem="BiG-OA-h9C" firstAttribute="top" secondItem="dyH-Ds-tOy" secondAttribute="bottom" constant="53" id="pC7-Wn-EWv"/>
-                    <constraint firstItem="7aB-FO-BnN" firstAttribute="top" secondItem="PEK-dd-quT" secondAttribute="bottom" constant="12" id="rGT-fs-k8U"/>
-                    <constraint firstItem="u5o-M1-lwA" firstAttribute="top" secondItem="Obt-Yb-nOJ" secondAttribute="top" constant="7" id="uKV-5n-1FV"/>
                     <constraint firstItem="uCW-bt-iT5" firstAttribute="leading" secondItem="BiG-OA-h9C" secondAttribute="trailing" constant="12" symbolic="YES" id="x4R-x5-NFV"/>
-                    <constraint firstItem="dyH-Ds-tOy" firstAttribute="leading" secondItem="7aB-FO-BnN" secondAttribute="leading" id="y6Z-Ay-lrQ"/>
                 </constraints>
             </view>
         </window>
@@ -642,9 +667,9 @@ Gw
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="gdj-Cg-zKd"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-dr-T7z">
-                    <rect key="frame" x="62" y="5" width="160" height="17"/>
+                    <rect key="frame" x="62" y="5" width="32" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="iQV-rZ-klW">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.1.0" id="iQV-rZ-klW">
                         <font key="font" size="11" name="LucidaGrande"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -782,12 +807,12 @@ Gw
                     </scroller>
                 </scrollView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OiV-qN-baK">
-                    <rect key="frame" x="62" y="5" width="188" height="17"/>
+                    <rect key="frame" x="62" y="5" width="32" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="184" id="o0a-yJ-fpB"/>
+                        <constraint firstAttribute="width" constant="28" id="o0a-yJ-fpB"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="4hs-Z8-qZ6">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.1.0" id="4hs-Z8-qZ6">
                         <font key="font" size="11" name="LucidaGrande"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -796,7 +821,7 @@ Gw
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wyw-VW-qcC">
                     <rect key="frame" x="342" y="129" width="18" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStopProgressTemplate" id="cc7-sm-FFv"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSMenuOnStateTemplate" id="cc7-sm-FFv"/>
                 </imageView>
             </subviews>
             <constraints>
@@ -829,13 +854,13 @@ Gw
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="n9c-jo-9fz"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qMp-RL-YZW">
-                    <rect key="frame" x="62" y="5" width="188" height="17"/>
+                    <rect key="frame" x="62" y="5" width="32" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="EsN-6e-5Db"/>
-                        <constraint firstAttribute="width" constant="184" id="W08-iG-Naf"/>
+                        <constraint firstAttribute="width" constant="28" id="W08-iG-Naf"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="uwq-PX-XuK">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.1.0" id="uwq-PX-XuK">
                         <font key="font" size="11" name="LucidaGrande"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -896,6 +921,7 @@ Gw
                                 </tableColumns>
                                 <connections>
                                     <outlet property="dataSource" destination="494" id="wzm-KS-oXg"/>
+                                    <outlet property="delegate" destination="494" id="Ff8-q6-SFr"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -915,9 +941,9 @@ Gw
                     </tableHeaderView>
                 </scrollView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-EJ-RQc">
-                    <rect key="frame" x="20" y="290" width="51" height="17"/>
+                    <rect key="frame" x="20" y="290" width="103" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Threats" id="yB0-bv-07o">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Scanning status" id="yB0-bv-07o">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -939,7 +965,7 @@ Gw
             </constraints>
         </view>
         <view id="SYD-bU-X7X" userLabel="confAboutView">
-            <rect key="frame" x="0.0" y="0.0" width="471" height="328"/>
+            <rect key="frame" x="0.0" y="0.0" width="471" height="267"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3S-HY-cZm">
@@ -951,26 +977,17 @@ Gw
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="Bai-KI-UdG"/>
                 </imageView>
                 <textField canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RMW-Wq-ea9">
-                    <rect key="frame" x="62" y="5" width="189" height="17"/>
+                    <rect key="frame" x="62" y="5" width="32" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="185" id="Ld6-i4-Ljj"/>
+                        <constraint firstAttribute="width" constant="28" id="Ld6-i4-Ljj"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Metascan Online SmartFolder" id="Qnv-aS-fWw">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="1.1.0" id="Qnv-aS-fWw">
                         <font key="font" size="11" name="LucidaGrande"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-RK-eAH">
-                    <rect key="frame" x="13" y="282" width="114" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="114" id="OwB-wh-gT4"/>
-                        <constraint firstAttribute="height" constant="26" id="uZs-Yk-5cL"/>
-                    </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="minilogo" id="KIg-8V-lbk"/>
-                </imageView>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="lrf-jI-ZM2">
                     <rect key="frame" x="384" y="35" width="47" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -986,109 +1003,25 @@ Gw
                     </connections>
                 </button>
                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qd7-19-m6A">
-                    <rect key="frame" x="13" y="66" width="438" height="213"/>
+                    <rect key="frame" x="13" y="66" width="438" height="181"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="fqP-hR-Enf">
-                        <rect key="frame" x="1" y="1" width="436" height="211"/>
+                        <rect key="frame" x="1" y="1" width="436" height="179"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" drawsBackground="NO" importsGraphics="NO" baseWritingDirection="leftToRight" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="6TH-cb-ErF">
-                                <rect key="frame" x="0.0" y="0.0" width="436" height="211"/>
+                                <rect key="frame" x="0.0" y="0.0" width="436" height="179"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="minSize" width="436" height="211"/>
+                                <size key="minSize" width="436" height="179"/>
                                 <size key="maxSize" width="463" height="10000000"/>
                                 <attributedString key="textStorage">
                                     <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="OPSWAT">
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <url key="NSLink" string="http://www.opswat.com"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> is the leading provider of software management and security technologies. Our solutions are simplified and comprehensive, solving complex development problems to reduce time and costs for IT professionals, software engineers and support teams.</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <integer key="NSLigature" value="0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <integer key="NSLigature" value="0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="31.300000000000001">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="31.299999237060547"/>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Metascan Online">
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <url key="NSLink" string="https://www.metascan-online.com/"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="31.300000000000001">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="31.299999237060547"/>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> is a free online file scanning service powered by OPSWAT’s Metascan technology, a multiple engine malware scanning solution.
+                                        <string key="content">
+No single anti-malware engine is perfect 100% of the time. Using multiple engines to scan for threats allows you to take advantage of the strengths of each individual engine and to guarantee the earliest possible detection. SmartFolder uses Metascan Online, a multiple engine malware scanning solution.
 
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="LucidaSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="31.300000000000001">
-                                                <tabStops>
-                                                    <textTab alignment="left" location="31.299999237060547"/>
-                                                </tabStops>
-                                            </paragraphStyle>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">No single anti-malware engine is perfect 100% of the time. Using multiple engines to scan for threats allows you to take advantage of the strengths of each individual engine and to guarantee the earliest possible detection. OPSWAT's multi-scanning technology optimizes the included engines to enable fast, simultaneous scanning and eliminates the hassle of licensing multiple products.
-</string>
+SmartFolder has been developed by Miguel Canton using OPSWAT's Metascan Online API.</string>
                                         <attributes>
                                             <color key="NSColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="LucidaSans"/>
@@ -1099,7 +1032,7 @@ Cg
                                     </fragment>
                                 </attributedString>
                                 <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="minSize" width="436" height="211"/>
+                                <size key="minSize" width="436" height="179"/>
                                 <size key="maxSize" width="463" height="10000000"/>
                             </textView>
                         </subviews>
@@ -1109,8 +1042,8 @@ Cg
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="hb7-tN-OeD">
-                        <rect key="frame" x="421" y="1" width="16" height="211"/>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="hb7-tN-OeD">
+                        <rect key="frame" x="421" y="1" width="16" height="179"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -1127,19 +1060,17 @@ Cg
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="z2r-RK-eAH" firstAttribute="leading" secondItem="SYD-bU-X7X" secondAttribute="leading" constant="13" id="0Ov-a9-Vtf"/>
                 <constraint firstItem="RMW-Wq-ea9" firstAttribute="top" secondItem="Qd7-19-m6A" secondAttribute="bottom" constant="44" id="1tB-fg-cwr"/>
                 <constraint firstAttribute="bottom" secondItem="H3S-HY-cZm" secondAttribute="bottom" constant="10" id="7EB-1a-xxU"/>
                 <constraint firstItem="H3S-HY-cZm" firstAttribute="top" secondItem="Qd7-19-m6A" secondAttribute="bottom" constant="8" symbolic="YES" id="7OX-mW-GhU"/>
                 <constraint firstAttribute="bottom" secondItem="RMW-Wq-ea9" secondAttribute="bottom" constant="5" id="AvB-qx-X6e"/>
                 <constraint firstAttribute="trailing" secondItem="lrf-jI-ZM2" secondAttribute="trailing" constant="40" id="Hx9-QI-Eoc"/>
-                <constraint firstItem="Qd7-19-m6A" firstAttribute="top" secondItem="z2r-RK-eAH" secondAttribute="bottom" constant="3" id="OD5-B2-vqD"/>
-                <constraint firstItem="Qd7-19-m6A" firstAttribute="leading" secondItem="z2r-RK-eAH" secondAttribute="leading" id="Tun-5U-q4W"/>
+                <constraint firstItem="Qd7-19-m6A" firstAttribute="top" secondItem="SYD-bU-X7X" secondAttribute="top" constant="20" symbolic="YES" id="QtF-Fp-Vn2"/>
                 <constraint firstItem="RMW-Wq-ea9" firstAttribute="leading" secondItem="H3S-HY-cZm" secondAttribute="trailing" constant="3" id="YcH-bc-vaD"/>
                 <constraint firstItem="4EI-Yg-Wlx" firstAttribute="top" secondItem="Qd7-19-m6A" secondAttribute="bottom" constant="4" id="chn-d3-dQs"/>
-                <constraint firstItem="z2r-RK-eAH" firstAttribute="top" secondItem="SYD-bU-X7X" secondAttribute="top" constant="20" symbolic="YES" id="d2B-5R-R8T"/>
                 <constraint firstAttribute="trailing" secondItem="Qd7-19-m6A" secondAttribute="trailing" constant="20" symbolic="YES" id="fqR-NY-EUW"/>
                 <constraint firstAttribute="bottom" secondItem="lrf-jI-ZM2" secondAttribute="bottom" constant="35" id="gAG-Ef-r28"/>
+                <constraint firstItem="Qd7-19-m6A" firstAttribute="leading" secondItem="SYD-bU-X7X" secondAttribute="leading" constant="13" id="gHV-y9-Yyg"/>
                 <constraint firstItem="Qd7-19-m6A" firstAttribute="trailing" secondItem="4EI-Yg-Wlx" secondAttribute="trailing" id="iHQ-V1-cCC"/>
                 <constraint firstItem="4EI-Yg-Wlx" firstAttribute="centerY" secondItem="lrf-jI-ZM2" secondAttribute="centerY" id="y1C-xD-f9U"/>
                 <constraint firstItem="Qd7-19-m6A" firstAttribute="leading" secondItem="H3S-HY-cZm" secondAttribute="leading" id="zNW-ky-CTY"/>
@@ -1528,10 +1459,8 @@ Cg
         <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSFolder" width="32" height="32"/>
         <image name="NSInfo" width="32" height="32"/>
+        <image name="NSMenuOnStateTemplate" width="11" height="11"/>
         <image name="NSPathTemplate" width="13" height="10"/>
-        <image name="NSStopProgressTemplate" width="11" height="11"/>
         <image name="NSUser" width="32" height="32"/>
-        <image name="metascanonline-logo2" width="281" height="31"/>
-        <image name="minilogo" width="110" height="12"/>
     </resources>
 </document>

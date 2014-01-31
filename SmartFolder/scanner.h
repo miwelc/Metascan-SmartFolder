@@ -26,6 +26,8 @@
 
 using namespace std;
 
+enum ScanningState { NOT_SCANNED, SENDING, SCANNING, SCANNED };
+
 class Scanner {
 	private:
 		static DB db;
@@ -42,8 +44,6 @@ class Scanner {
 		static pthread_mutex_t apiKeyMutex, processedMutex, toBeProcessedMutex;
 		static pthread_mutex_t nThreadsUploadMutex, nThreadsResultsMutex;
 		
-		
-		enum ScanningState { NOT_SCANNED, SENDING, SCANNING, SCANNED };
 		struct FileInfo {
 			string path;
 			ScanningState state;
@@ -82,8 +82,10 @@ class Scanner {
 		static bool connectivityIsOk();
 		static void setAPIKey(const char* key);
 		static string getAPIKey();
+		static bool isValidAPIKey(string key);
 		static void setRescanTime(long time); //In seconds
 		static void getInfectedFiles(DBResults* infectedList);
+		static void getAllFilesStatus(DBResults* filesStatus);
 		static void* startScanning(void* _path);
 		static void endScanning() { finish = true; };
 		static void scanFile(string file);

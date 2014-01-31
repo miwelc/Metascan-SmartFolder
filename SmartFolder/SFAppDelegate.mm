@@ -7,6 +7,7 @@
 //
 
 #include <pthread.h>
+#import <QuartzCore/CoreAnimation.h>
 #import "SFAppDelegate.h"
 #import "PFMoveApplication.h"
 #include "version.h"
@@ -86,7 +87,7 @@ SFAppDelegate *appDelegate;
 	APIKey = [[NSUserDefaults standardUserDefaults] stringForKey:@"APIKey"];
 	if(APIKey == NULL)
 		APIKey = @"";
-	if([self isValidApiKey:APIKey]) [_apiKeyTextField setStringValue:APIKey];
+	[_apiKeyTextField setStringValue:APIKey];
 	Scanner::setAPIKey([APIKey UTF8String]);
 	
 	BOOL isDir;
@@ -110,11 +111,10 @@ SFAppDelegate *appDelegate;
 }
 
 - (BOOL)userNotificationCenter:(CNUserNotificationCenter *)center shouldPresentNotification:(CNUserNotification *)notification {
-	NSString* notificationType = [notification.userInfo objectForKey:@"notificationType"];
-	if([notificationType  isEqual: @"infected"]) {
-		Scanner::getInfectedFiles(&infectedFiles);
-		[_resultsTableView reloadData];
-	}
+	//NSString* notificationType = [notification.userInfo objectForKey:@"notificationType"];
+	//if([notificationType  isEqual: @"infected"]) {
+	//	[self shouldUpdateScanTable];
+	//}
 	return YES;
 }
 
@@ -200,21 +200,27 @@ SFAppDelegate *appDelegate;
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)wrongKey {
-	APIKey = @"";
-	[_apiKeyTextField setStringValue:APIKey];
-	[self windowShouldClose:self]; //Force a check and an alert
+- (void)wrongKeyAlert {
+	//APIKey = @"";
+	//[_apiKeyTextField setStringValue:APIKey];
+	
+	NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Please, type a correct API Key"];
+	[alert setInformativeText:@"SmartFolder requires a valid Metascan API key in order to scan your files. Metascan provides the malware detection tools used by this software."];
+	[[alert window] setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
+	[[alert window] setLevel: NSFloatingWindowLevel];
+	[alert runModal];
+	
+	[_correctKeyImg setImage:[NSImage imageNamed:@"NSStopProgressTemplate"]];
+	[self showConfiguration:self];
+	[self switchConfViewToview:_confAccountView];
 }
 
 - (bool)isValidApiKey:(NSString*)key {
-	if([key length] != 32) {
-		[_correctKeyImg setImage:[NSImage imageNamed:@"NSStopProgressTemplate"]];
+	if([key length] != 32)
 		return false;
-	}
-	else {
-		[_correctKeyImg setImage:[NSImage imageNamed:@"NSMenuOnStateTemplate"]];
-		return true;
-	}
+	else
+		return Scanner::isValidAPIKey([key UTF8String]);
 }
 
 //Only allow up to 32 hexadecimal characters in the API Key
@@ -227,7 +233,17 @@ SFAppDelegate *appDelegate;
 	newString = ([newString length] > 32 ? [newString substringToIndex:32] : newString);
 	
 	[textField setStringValue:[newString lowercaseString]];
-	[self isValidApiKey:newString];
+	if([self isValidApiKey:newString])
+		[_correctKeyImg setImage:[NSImage imageNamed:@"NSMenuOnStateTemplate"]];
+	else {
+		[_correctKeyImg setImage:[NSImage imageNamed:@"NSStopProgressTemplate"]];
+		//Shake the window and play an error sound
+		if([newString length] == 32) {
+			[_configWindow setAnimations:[NSDictionary dictionaryWithObject:[self shakeAnimation:[_configWindow frame]] forKey:@"frameOrigin"]];
+			[[_configWindow animator] setFrameOrigin:[_configWindow frame].origin];
+			[self playErrorSound];
+		}
+	}
 }
 
 - (IBAction)editedAPIKey:(id)sender {
@@ -235,36 +251,24 @@ SFAppDelegate *appDelegate;
 	NSString *oldKey = [APIKey copy];
 	
 	if ([newKey isEqualToString:oldKey] == false) {
-		if([self isValidApiKey:newKey]) {
-			APIKey = [newKey copy];
-			[[NSUserDefaults standardUserDefaults] setValue:APIKey forKey:@"APIKey"];
-			[[NSUserDefaults standardUserDefaults] synchronize];
-			Scanner::setAPIKey([APIKey UTF8String]);
-		
-			//If the previous one wasn't a good key we start the threads now
-			if([self isValidApiKey:oldKey] == false)
-				[self initThreads];
-		
-			NSLog(@"API Key changed to %s", [APIKey UTF8String]);
-		}
-		else { //Restore the last key typed
-			//[_apiKeyTextField setStringValue:APIKey];
-		}
+		APIKey = [newKey copy];
+		[[NSUserDefaults standardUserDefaults] setValue:APIKey forKey:@"APIKey"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		Scanner::setAPIKey([APIKey UTF8String]);
+	
+		//If the previous one wasn't a good key we start the threads now
+		if([self isValidApiKey:oldKey] == false)
+			[self initThreads];
+	
+		NSLog(@"API Key changed to %s", [APIKey UTF8String]);
 	}
 }
 
 - (BOOL)windowShouldClose:(id)sender {
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Please, type a correct API Key"];
-	[[alert window] setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
-	[[alert window] setLevel: NSFloatingWindowLevel];
-	
 	[self editedAPIKey:self];
     
     if([self isValidApiKey:APIKey] == false) {
-        [alert runModal];
-        [self showConfiguration:self];
-        [self switchConfViewToview:_confAccountView];
+		[self wrongKeyAlert];
         return NO;
     }
     else {
@@ -283,6 +287,11 @@ SFAppDelegate *appDelegate;
 	[_configWindow setFrameOrigin:point];
 	[_configWindow makeKeyAndOrderFront:self];
 	[_configWindow setLevel: NSFloatingWindowLevel];
+}
+
+- (IBAction)showScanStatus:(id)sender {
+	[self showConfiguration:self];
+	[self switchConfViewToview:_confResultsView];
 }
 
 - (IBAction)showLegal:(id)sender {
@@ -323,8 +332,7 @@ SFAppDelegate *appDelegate;
 		[_configToolbar setSelectedItemIdentifier:@"accountToolbarItem"];
 	else if(newView == _confResultsView) {
 		[_configToolbar setSelectedItemIdentifier:@"resultsToolbarItem"];
-		Scanner::getInfectedFiles(&infectedFiles);
-		[_resultsTableView reloadData];
+		[self shouldUpdateScanTable];
 	}
 	else if(newView == _confAboutView) {
 		[_configToolbar setSelectedItemIdentifier:@"aboutToolbarItem"];
@@ -348,33 +356,76 @@ SFAppDelegate *appDelegate;
 	currentView = newView;
 }
 
+- (void)shouldUpdateScanTable {
+	Scanner::getAllFilesStatus(&filesStatus);
+	[_resultsTableView reloadData];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return infectedFiles.size();
+	return filesStatus.size();
 }
 
 -(id) tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	DBRow fileInfo = infectedFiles[row];
+	DBRow fileInfo = filesStatus[row];
 	string path = fileInfo["PATH"];
-	NSString* filename = [NSString stringWithUTF8String:path.substr(path.find_last_of("/")+1).c_str()];
-	int scanResult = atoi(fileInfo["SCAN_RESULT"].c_str());
+	int state = atoi(fileInfo["STATE"].c_str());
+	int scanResult;
 	
 	NSString* identifier = [tableColumn identifier];
 	if([identifier isEqual:@"status"]) {
-		switch(scanResult) {
-			case 1:
-				return @"Infected";
-			case 2:
+		switch(state) {
+			case SENDING:
+				return @"Sending";
+			case SCANNING:
+				return @"Scanning";
+			case SCANNED:
+				scanResult = atoi(fileInfo["SCAN_RESULT"].c_str());
+				switch(scanResult) {
+					case 0: case 7:
+						return @"Clean";
+					case 1: case 4: case 6: case 8:
+						return @"Infected";
+					case 2:
+						return @"Suspicious";
+					case 3: case 5: case 9: case 10: case 11:
+					case 12: case 13: case 14: default:
+						return @"Failed to scan";
+				}
+			case NOT_SCANNED:
 			default:
-				return @"Suspicious";
+				return @"Pending";
 		}
 	}
 	else if([identifier isEqual:@"filename"]) {
-		return filename;
+		return [NSString stringWithUTF8String:path.substr(path.find_last_of("/")+1).c_str()];
 	}
 	else if([identifier isEqual:@"path"]) {
 		return [NSString stringWithUTF8String:path.c_str()];
 	}
 	else return @"";
+}
+
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)col row:(NSInteger)row {
+	if([[col identifier] isEqual:@"status"]) {
+		if(atoi(filesStatus[row]["STATE"].c_str()) == SCANNED) {
+			int scanResult = atoi(filesStatus[row]["SCAN_RESULT"].c_str());
+			switch(scanResult) {
+				case 1: case 4: case 6: case 8:
+					[cell setBackgroundColor:[NSColor colorWithCalibratedRed:1.0f green:0.3f blue:0.3f alpha:1.0]];
+					[cell setTextColor:[NSColor whiteColor]];
+					[cell setDrawsBackground:YES];
+					break;
+				case 2:
+					[cell setBackgroundColor:[NSColor yellowColor]];
+					[cell setTextColor:[NSColor blackColor]];
+					[cell setDrawsBackground:YES];
+					break;
+				default:
+					[cell setTextColor:[NSColor blackColor]];
+					[cell setDrawsBackground:NO];
+			}
+		}
+	}
 }
 
 - (IBAction)switchPauseResume:(id)sender {
@@ -391,7 +442,7 @@ SFAppDelegate *appDelegate;
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
 	[self cleanup];
-	NSLog(@"BYEEE %s",[NSHomeDirectory() UTF8String]);
+	NSLog(@"BYEEE");
 	
 	return NSTerminateNow;
 }
@@ -404,13 +455,7 @@ SFAppDelegate *appDelegate;
 		return;
 	
 	if([self isValidApiKey:[NSString stringWithUTF8String:Scanner::getAPIKey().c_str()]] == false) {
-		NSAlert *alert = [[NSAlert alloc] init];
-		[alert setMessageText:@"Please, type a correct API Key"];
-		[[alert window] setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
-		[[alert window] setLevel: NSFloatingWindowLevel];
-		[alert runModal];
-        [self showConfiguration:self];
-        [self switchConfViewToview:_confAccountView];
+		[self wrongKeyAlert];
 		return;
 	}
 	
@@ -458,5 +503,39 @@ SFAppDelegate *appDelegate;
 	[notificationCenter deliverNotification:notification];
 }
 
+- (void)playErrorSound {
+	NSSound *sound;
+	if(runningMLOrLater())
+		sound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/system/Volume Mount.aif" byReference:YES];
+	else
+		sound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/Resources/SystemSounds/system/Volume Mount.aif" byReference:YES];
+	if(sound) {
+		[sound play];
+	}
+}
+
+
+/*
+* Author: Matt Long
+* Link: http://www.cimgf.com/2008/02/27/core-animation-tutorial-window-shake-effect/
+*/
+- (CAKeyframeAnimation *)shakeAnimation:(NSRect)frame {
+	const int numberOfShakes = 7;
+	const float durationOfShake = 0.5f;
+	const float vigourOfShake = 0.04f;
+    CAKeyframeAnimation *shakeAnimation = [CAKeyframeAnimation animation];
+	
+    CGMutablePathRef shakePath = CGPathCreateMutable();
+    CGPathMoveToPoint(shakePath, NULL, NSMinX(frame), NSMinY(frame));
+	
+	for(int index = 0; index < numberOfShakes; ++index) {
+		CGPathAddLineToPoint(shakePath, NULL, NSMinX(frame) - frame.size.width * vigourOfShake, NSMinY(frame));
+		CGPathAddLineToPoint(shakePath, NULL, NSMinX(frame) + frame.size.width * vigourOfShake, NSMinY(frame));
+	}
+    CGPathCloseSubpath(shakePath);
+    shakeAnimation.path = shakePath;
+    shakeAnimation.duration = durationOfShake;
+    return shakeAnimation;
+}
 
 @end

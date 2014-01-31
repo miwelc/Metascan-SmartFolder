@@ -51,10 +51,10 @@ void Monitor::removeEvents(string path) {
 			path += "/";
 			for(auto it = filesMonitored.begin(); it != filesMonitored.end();) {
 				if(it->first.find(path) == 0) {
-					printf("Deleted %s\n", it->first.c_str());
+					printf("Deleted '%s'\n", it->first.c_str());
 					close(it->second.fd);
 					//Tell the scanner the file was deleted
-					Scanner::fileDeleted(path);
+					Scanner::fileDeleted(it->first.c_str());
 					it = filesMonitored.erase(it); //increments it
 				} else
 					it++;

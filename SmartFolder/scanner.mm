@@ -84,9 +84,13 @@ bool Scanner::connectivityIsOk() {
 	curl = curl_easy_init();
 	if(curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, "https://api.metascan-online.com/");
-		if(curl_easy_perform(curl) != CURLE_OK)
+		if(curl_easy_perform(curl) != CURLE_OK) {
+			curl_easy_cleanup(curl);
 			return false;
+		}
 	}
+	
+	curl_easy_cleanup(curl);
 	
 	return true;
 }
@@ -152,6 +156,12 @@ bool Scanner::saveChanges(FileInfo* file, bool insertion) {
 					  "'"+to_string(file->scanResult)+"',"\
 					  "'"+file->hash+"',"\
 					  "'"+file->data_id+"');", NULL);
+		if(ok) {
+			[appDelegate
+			 performSelectorOnMainThread:@selector(shouldUpdateScanTable)
+			 withObject:nil
+			 waitUntilDone:NO];
+		}
 	}
 	
 	return ok;
@@ -172,6 +182,62 @@ string Scanner::getAPIKey() {
 	return key;
 }
 
+size_t curlNoOutput(char *ptr, size_t size, size_t nmemb, void *userdata){return size * nmemb;}
+
+bool Scanner::isValidAPIKey(string key) {
+	CURL *curl;
+	CURLcode res;
+	struct curl_slist* headerlist = NULL;
+	string header;
+	bool valid = false;
+	
+	//Set up headers
+	header = "apikey: " + key;
+	headerlist = curl_slist_append(headerlist, header.c_str());
+	
+	curl = curl_easy_init();
+	if(curl) {
+		curl_easy_setopt(curl, CURLOPT_URL, "https://api.metascan-online.com/v1/file/");
+        curl_easy_setopt(curl, CURLOPT_HEADER, 1L);
+		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerlist);
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlNoOutput);
+		//curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+		
+		//Perform the request
+		res = curl_easy_perform(curl);
+		if(res != CURLE_OK) {
+			fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+			
+			pthread_mutex_lock(&connectivityMutex);
+			connectivity = false;
+			pthread_mutex_unlock(&connectivityMutex);
+			
+			valid = true; //We can't tell whether it's correct or not
+		}
+		
+		long http_code = 0;
+		curl_easy_getinfo (curl, CURLINFO_RESPONSE_CODE, &http_code);
+		if(http_code == 200 && res != CURLE_ABORTED_BY_CALLBACK) { //Succeeded
+			valid = true;
+		}
+		else { //Failed
+			if(http_code == 401)
+				valid = false;
+			else if(http_code == 403) {
+				fprintf(stderr, "Exceeded usage, will wait 1h\n");
+				exceededUsageTime = time(NULL);
+				exceededUsage = true;
+				valid = true; //We can't tell whether it's correct or not
+			}
+		}
+		
+	}
+	
+	curl_easy_cleanup(curl);
+	
+	return valid;
+}
+
 void Scanner::setRescanTime(long time) {
 	pthread_mutex_lock(&rescanTimeMutex);
 	rescanTime = time;
@@ -180,6 +246,10 @@ void Scanner::setRescanTime(long time) {
 
 void Scanner::getInfectedFiles(DBResults* infectedList) {
 	db.query("SELECT * from FILES where SCAN_RESULT = '1' OR SCAN_RESULT = '2';", infectedList);
+}
+
+void Scanner::getAllFilesStatus(DBResults* filesStatus) {
+	db.query("SELECT * from FILES ORDER BY STATE, SCAN_RESULT DESC, CAST(DATE AS INTEGER) DESC;", filesStatus);
 }
 
 size_t Scanner::initScanCallback(char *ptr, size_t size, size_t nmemb, void *userdata) {
@@ -298,7 +368,7 @@ void* Scanner::workerThread(void* _file) {
 				fprintf(stderr, "API Key invalid\n");
 				wrongApiKey = true;
 				[appDelegate
-				 performSelectorOnMainThread:@selector(wrongKey)
+				 performSelectorOnMainThread:@selector(wrongKeyAlert)
 				 withObject:nil
 				 waitUntilDone:NO];
 			}
@@ -411,9 +481,11 @@ size_t Scanner::getResultsCallback(char *ptr, size_t size, size_t nmemb, void *u
 			fileInfo.state = SCANNED;
 			fileInfo.date = now;
 			fileInfo.scanResult = scanResultI;
-			if(scanResultI == 1 || scanResultI == 2) { //Threat
+			if(scanResultI == 1 || scanResultI == 2 || scanResultI == 4
+			   || scanResultI == 6 || scanResultI == 8) { //Threat
 				notifyUser(results->path, scanResultI);
-				changeFileIcon(results->path);
+				if(scanResultI != 2) //Only if we are sure it's infected
+					changeFileIcon(results->path);
 			}
 			db.query("INSERT OR REPLACE INTO HASHES(HASH, SCAN_RESULT, DATA_ID)"\
 					 "VALUES("\
@@ -476,7 +548,7 @@ void* Scanner::resultsThread(void* _results) {
 				fprintf(stderr, "API Key invalid\n");
 				wrongApiKey = true;
 				[appDelegate
-				 performSelectorOnMainThread:@selector(wrongKey)
+				 performSelectorOnMainThread:@selector(wrongKeyAlert)
 				 withObject:nil
 				 waitUntilDone:NO];
 			}
@@ -677,6 +749,8 @@ void Scanner::scanFile(string file) {
 	CFStringRef path = CFStringCreateWithBytes(NULL, (const unsigned char*)file.c_str(), file.length(), kCFStringEncodingUTF8, false);
 	string hash = FileSHA1HashCreateWithPath(path, 0);
 	
+	printf("Hash: %s\n", hash.c_str());
+	
 	pthread_mutex_lock(&processedMutex);
 	auto it = filesProcessed.find(file);
 	//It has already been processed AND hasn't been modified
@@ -720,4 +794,9 @@ void Scanner::fileDeleted(string file) {
     
     //Delete entry
 	db.query("DELETE from FILES where PATH = '"+file+"';", NULL);
+	
+	[appDelegate
+	 performSelectorOnMainThread:@selector(shouldUpdateScanTable)
+	 withObject:nil
+	 waitUntilDone:NO];
 }

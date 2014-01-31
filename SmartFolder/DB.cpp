@@ -19,8 +19,8 @@ DB::~DB() {
 bool DB::open(string path) {
 	close();
 	
-	if(sqlite3_open(path.c_str(), &db) != SQLITE_OK) {
-		printf("Can't open database: %s\n", sqlite3_errmsg(db));
+	if(sqlite3_open_v2(path.c_str(), &db, SQLITE_OPEN_FULLMUTEX|SQLITE_OPEN_READWRITE|SQLITE_OPEN_CREATE, NULL) != SQLITE_OK) {
+		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
 		return false;
 	}
 	else {
@@ -44,6 +44,7 @@ bool DB::query(string query, DBResults* results) {
     if(sqlite3_prepare_v2(db, query.c_str(), -1, &statement, NULL) != SQLITE_OK) {
         fprintf(stderr, "Error when preparing query!\n");
         fprintf(stderr, "Query was: '%s'\n", query.c_str());
+		fprintf(stderr, "Error: %s\n", sqlite3_errmsg(db));
 		return false;
     }
 	

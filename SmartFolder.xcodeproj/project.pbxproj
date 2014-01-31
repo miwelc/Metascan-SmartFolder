@@ -24,7 +24,6 @@
 		49B33EBA1825E982002268C4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B33EB91825E982002268C4 /* libsqlite3.dylib */; };
 		49B33EBD1826281B002268C4 /* version.mm in Sources */ = {isa = PBXBuildFile; fileRef = 49B33EBC1826281B002268C4 /* version.mm */; };
 		49B3C0A01827C7800054CCD8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B3C09F1827C7800054CCD8 /* MainMenu.xib */; };
-		49B5C074182B5CFD00FE2C55 /* minilogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C073182B5CFD00FE2C55 /* minilogo.png */; };
 		E318B0B818123484000FF209 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E318B0B718123484000FF209 /* Cocoa.framework */; };
 		E318B0C418123484000FF209 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E318B0C318123484000FF209 /* main.m */; };
 		E318B0CB18123484000FF209 /* SFAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E318B0CA18123484000FF209 /* SFAppDelegate.mm */; };
@@ -32,11 +31,9 @@
 		E318B0D818123484000FF209 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E318B0B718123484000FF209 /* Cocoa.framework */; };
 		E318B0EF18125892000FF209 /* monitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E318B0EB18125892000FF209 /* monitor.cpp */; };
 		E318B0F018125892000FF209 /* scanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = E318B0ED18125892000FF209 /* scanner.mm */; };
-		E318B0F2181277E0000FF209 /* metascanonline-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E318B0F1181277E0000FF209 /* metascanonline-logo.png */; };
 		E318B0F4181279EA000FF209 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E318B0F3181279EA000FF209 /* Images.xcassets */; };
 		E3A1354A1814E91800396544 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A135491814E91800396544 /* Security.framework */; };
 		E3B41B90181BAD310053C298 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B41B8F181BAD310053C298 /* libcurl.dylib */; };
-		E3BE67E11816555C00ECBC0A /* metascanonline-logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BE67E01816555C00ECBC0A /* metascanonline-logo2.png */; };
 		E3F6F9D9181BE33F00F42EB0 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = E3F6F9CF181BE33F00F42EB0 /* json_internalarray.inl */; };
 		E3F6F9DA181BE33F00F42EB0 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = E3F6F9D0181BE33F00F42EB0 /* json_internalmap.inl */; };
 		E3F6F9DB181BE33F00F42EB0 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3F6F9D1181BE33F00F42EB0 /* json_reader.cpp */; };
@@ -87,7 +84,6 @@
 		49B33EBB18262584002268C4 /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		49B33EBC1826281B002268C4 /* version.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = version.mm; sourceTree = "<group>"; };
 		49B3C09F1827C7800054CCD8 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		49B5C073182B5CFD00FE2C55 /* minilogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minilogo.png; sourceTree = "<group>"; };
 		E318B0B418123484000FF209 /* SmartFolder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartFolder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E318B0B718123484000FF209 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E318B0BA18123484000FF209 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -104,11 +100,9 @@
 		E318B0EC18125892000FF209 /* monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monitor.h; sourceTree = "<group>"; };
 		E318B0ED18125892000FF209 /* scanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = scanner.mm; sourceTree = "<group>"; };
 		E318B0EE18125892000FF209 /* scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scanner.h; sourceTree = "<group>"; };
-		E318B0F1181277E0000FF209 /* metascanonline-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "metascanonline-logo.png"; sourceTree = "<group>"; };
 		E318B0F3181279EA000FF209 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E3A135491814E91800396544 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E3B41B8F181BAD310053C298 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
-		E3BE67E01816555C00ECBC0A /* metascanonline-logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "metascanonline-logo2.png"; sourceTree = "<group>"; };
 		E3F6F9C9181BE33E00F42EB0 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
 		E3F6F9CA181BE33E00F42EB0 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		E3F6F9CB181BE33E00F42EB0 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
@@ -245,9 +239,6 @@
 				49AE9EC3183204AA006F16E6 /* hash.mm */,
 				49AE9EC51832056F006F16E6 /* hash.h */,
 				498EF8B5182FA21600A33B1B /* infected.png */,
-				E318B0F1181277E0000FF209 /* metascanonline-logo.png */,
-				E3BE67E01816555C00ECBC0A /* metascanonline-logo2.png */,
-				49B5C073182B5CFD00FE2C55 /* minilogo.png */,
 				499A20C5182C531A001C5177 /* CNUserNotification */,
 				49B090491824B05A00FFE6D7 /* MoveApplication */,
 				E3F6F9C8181BE33E00F42EB0 /* json */,
@@ -376,15 +367,12 @@
 			files = (
 				E3F6F9DD181BE33F00F42EB0 /* json_valueiterator.inl in Resources */,
 				49B3C0A01827C7800054CCD8 /* MainMenu.xib in Resources */,
-				49B5C074182B5CFD00FE2C55 /* minilogo.png in Resources */,
 				E3F6F9DA181BE33F00F42EB0 /* json_internalmap.inl in Resources */,
 				E318B0F4181279EA000FF209 /* Images.xcassets in Resources */,
 				E3F6F9DF181BE33F00F42EB0 /* sconscript in Resources */,
 				499A20DC182C531A001C5177 /* CNUserNotificationDefaultSound.aif in Resources */,
 				498EF8B6182FA21600A33B1B /* infected.png in Resources */,
-				E318B0F2181277E0000FF209 /* metascanonline-logo.png in Resources */,
 				E3F6F9D9181BE33F00F42EB0 /* json_internalarray.inl in Resources */,
-				E3BE67E11816555C00ECBC0A /* metascanonline-logo2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

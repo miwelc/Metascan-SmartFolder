@@ -45,7 +45,7 @@ std::string FileSHA1HashCreateWithPath(CFStringRef filePath,
     CC_SHA1_Init(&hashObject);
     
     // Make sure chunkSizeForReadingData is valid
-    if (!chunkSizeForReadingData) {
+    if(!chunkSizeForReadingData) {
         chunkSizeForReadingData = FileHashDefaultChunkSizeForReadingData;
     }
     

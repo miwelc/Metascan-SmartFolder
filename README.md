@@ -10,6 +10,6 @@ Directories description
 
 SmartFolder.xcodeproj & SmartFolder: Xcode project files.
 
-Metascan SmartFolder User Manual.pdf: Basic usage information.
+SmartFolder User Manual.pdf: Basic usage information.
 
 SmartFolder.app: Compiled app.

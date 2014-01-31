@@ -16,13 +16,13 @@
 #include "CNUserNotification.h"
 
 @interface SFAppDelegate : NSObject
-	<NSApplicationDelegate, NSWindowDelegate, CNUserNotificationCenterDelegate, NSTextFieldDelegate, NSTableViewDataSource>
+	<NSApplicationDelegate, NSWindowDelegate, CNUserNotificationCenterDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
 {
 	Scanner* scanner;
 	pthread_t monitorThread, scannerThread;
 	NSString *SFbaseDir;
 	NSString *APIKey;
-	DBResults infectedFiles;
+	DBResults filesStatus;
 	
 	//UI Elements
 	CNUserNotificationCenter *notificationCenter;
@@ -54,10 +54,12 @@
 
 - (IBAction)selectFolder:(id)sender;
 - (IBAction)showConfiguration:(id)sender;
+- (IBAction)showScanStatus:(id)sender;
 - (IBAction)switchConfView:(id)sender;
 
 - (void)notifyUser:(CNUserNotification*)notification;
-- (void)wrongKey;
+- (void)shouldUpdateScanTable;
+- (void)wrongKeyAlert;
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender;
 
