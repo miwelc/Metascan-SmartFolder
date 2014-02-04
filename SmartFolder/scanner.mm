@@ -722,7 +722,6 @@ void* Scanner::startScanning(void* _path) {
 				   && now >= itFP->second.date + _rescanTime) {
 					itFP->second.state = NOT_SCANNED;
 					toBeRescanned.push_back(itFP->second.path);
-					notifyUser(itFP->second.path, 1);
 				}
 			}
 			pthread_mutex_unlock(&processedMutex);

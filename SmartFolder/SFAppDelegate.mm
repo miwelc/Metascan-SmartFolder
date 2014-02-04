@@ -425,6 +425,10 @@ SFAppDelegate *appDelegate;
 					[cell setDrawsBackground:NO];
 			}
 		}
+		else {
+			[cell setTextColor:[NSColor blackColor]];
+			[cell setDrawsBackground:NO];
+		}
 	}
 }
 
