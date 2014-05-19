@@ -83,7 +83,7 @@ bool Scanner::connectivityIsOk() {
 	
 	curl = curl_easy_init();
 	if(curl) {
-		curl_easy_setopt(curl, CURLOPT_URL, "https://api.metascan-online.com/");
+		curl_easy_setopt(curl, CURLOPT_URL, "https://scan.metascan-online.com/v2/");
 		if(curl_easy_perform(curl) != CURLE_OK) {
 			curl_easy_cleanup(curl);
 			return false;
@@ -197,7 +197,7 @@ bool Scanner::isValidAPIKey(string key) {
 	
 	curl = curl_easy_init();
 	if(curl) {
-		curl_easy_setopt(curl, CURLOPT_URL, "https://api.metascan-online.com/v1/file/");
+		curl_easy_setopt(curl, CURLOPT_URL, "https://scan.metascan-online.com/v2/file/");
         curl_easy_setopt(curl, CURLOPT_HEADER, 1L);
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerlist);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlNoOutput);
@@ -336,7 +336,7 @@ void* Scanner::workerThread(void* _file) {
 	
 	curl = curl_easy_init();
 	if(curl) {
-		curl_easy_setopt(curl, CURLOPT_URL, "https://api.metascan-online.com/v1/file");
+		curl_easy_setopt(curl, CURLOPT_URL, "https://scan.metascan-online.com/v2/file");
 		curl_easy_setopt(curl, CURLOPT_POST, 1L);
         curl_easy_setopt(curl, CURLOPT_HEADER, 1L);
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerlist);
@@ -511,7 +511,7 @@ void* Scanner::resultsThread(void* _results) {
 	CURLcode res;
 	struct curl_slist* headerlist = NULL;
 	string header;
-	string url = "https://api.metascan-online.com/v1/file/" + results->data_id;
+	string url = "https://scan.metascan-online.com/v2/file/" + results->data_id;
 	
 	//Set up headers
 	header = "apikey: " + getAPIKey();
